@@ -32,10 +32,10 @@ export default function App() {
     })
   }
 useEffect(() => {
-  if(editing == null) {
+  if(editing === null) {
     setFormValues(initialValues)
     }else{
-      const { username, interests } = friends.find(fr => fr.id == editing)
+      const { username, interests } = friends.find(fr => fr.id === editing)
       setFormValues({ username, interests })
     }
   } , [editing])
@@ -46,7 +46,7 @@ useEffect(() => {
 
   const editExisitingFriend = () => {
     setFriends(prevFriends => prevFriends.map(fr => {
-      if(fr.id == editing){
+      if(fr.id === editing){
         return {...fr , ...formValues}
       }
         return fr
@@ -80,13 +80,13 @@ useEffect(() => {
     <BrowserRouter>
         <nav className='nav'>
            <Link to='/'> Login </Link> 
-           <Link to="/friends">Friends</Link>
+           <Link to="/friends">Pets</Link>
         </nav>
 
         <Routes>
           <Route path = '/' element = {
             <div className = 'loginForm'>
-                <h1> Welcome!  Log In to See Your Friends ... </h1>
+                <h1> Welcome!  Login to See Available Pets ... </h1>
               <Login setIsLoggedIn={setIsLoggedIn} setWelcomeMessage={setWelcomeMessage}/> 
             </div>
             } />

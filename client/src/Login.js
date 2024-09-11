@@ -11,6 +11,7 @@ const initialFormValues = {
 export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
   const [values, setValues] = useState(initialFormValues);
   const [error, setError] = useState(null)
+  const [isRegistering, setIsRegistering] = useState(false)
   const navigate = useNavigate()
 
   const onChange = evt => {
@@ -20,9 +21,11 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
 
   const onSubmit = async (evt) => {
     evt.preventDefault()
-
+    const endpoint = isRegistering ?
+    'http://localhost:9000/api/register'
+    : 'http://localhost:9000/api/login'
    
-    fetch('http://localhost:9000/api/login', {
+    fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +36,11 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.token) {
+        if(isRegistering){
+          console.log('Registration successful:' , data)
+          setIsRegistering(false)
+          setError(null)
+        } else if (data.token) {
           console.log('Login successful:', data)
           localStorage.setItem('token', data.token)
           setIsLoggedIn(true)
@@ -78,8 +85,17 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
         />
       </div>
       <button disabled={isDisabled()} className="login-button" type="submit">
-        Login
+        {isRegistering ? 'Register' : 'Login'}
       </button>
+      <div>
+        <button 
+          type = "button"
+          className = 'login-button'
+          onClick ={() => setIsRegistering(!isRegistering)}
+        >
+          {isRegistering ? 'Switch to Login' : 'Switch to Register'}
+        </button>
+        </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </form>
   );
