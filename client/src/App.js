@@ -13,9 +13,6 @@ const initialValues = {
   interests: '',
 }
 
-// let initialFriends = [
-//   { id: getId(), username: 'Tom', interests: 'Hiking' }
-// ]
 
 export default function App() {
   const [friends, setFriends] = useState([]) 
@@ -71,10 +68,6 @@ useEffect(() => {
     setFormValues(initialValues)
     }
 
-
-  // useEffect(() => {
-  //   setFriends()
-  // }, [])
 
   return (
     <BrowserRouter>
