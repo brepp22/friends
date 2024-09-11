@@ -6,7 +6,7 @@ export default function Friends ({details, onEdit}) {
         onEdit(id)
     } 
     if(!details){
-        return <h3> Fetching your friend's details ... </h3>
+        return <h3> Fetching pet's details ... </h3>
     }
 
 return (

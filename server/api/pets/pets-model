@@ -1,0 +1,9 @@
+const db = require('../../data/db-config')
+
+async function find() {
+    return db('pets')
+}
+
+module.exports = {
+    find,
+}

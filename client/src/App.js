@@ -13,9 +13,9 @@ const initialValues = {
   interests: '',
 }
 
-let initialFriends = [
-  { id: getId(), username: 'Tom', interests: 'Hiking' }
-]
+// let initialFriends = [
+//   { id: getId(), username: 'Tom', interests: 'Hiking' }
+// ]
 
 export default function App() {
   const [friends, setFriends] = useState([]) 
@@ -72,15 +72,15 @@ useEffect(() => {
     }
 
 
-  useEffect(() => {
-    setFriends(initialFriends)
-  }, [])
+  // useEffect(() => {
+  //   setFriends()
+  // }, [])
 
   return (
     <BrowserRouter>
         <nav className='nav'>
            <Link to='/'> Login </Link> 
-           <Link to="/friends">Pets</Link>
+           <Link to="/pets">Pets</Link>
         </nav>
 
         <Routes>
