@@ -8,7 +8,7 @@ const initialFormValues = {
 
 
 
-export default function Login({ setIsLoggedIn }) {
+export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
   const [values, setValues] = useState(initialFormValues);
   const [error, setError] = useState(null)
   const navigate = useNavigate()
@@ -21,27 +21,30 @@ export default function Login({ setIsLoggedIn }) {
   const onSubmit = async (evt) => {
     evt.preventDefault()
 
-    try {
-      const response = await fetch('http://localhost:9000/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('token', data.token)
-        setIsLoggedIn(true)
-        navigate('/friends')
-      } else {
-        setError(data.message || 'Login failed')
-      }
-    } catch (error) {
-      setError('Invalid Credientials')
-    }
+   
+    fetch('http://localhost:9000/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        username: values.username, 
+        password: values.password, }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.token) {
+          console.log('Login successful:', data)
+          localStorage.setItem('token', data.token)
+          setIsLoggedIn(true)
+          setWelcomeMessage(`${data.message}! `)
+          navigate('/friends')
+        } else {
+          console.error('Login failed:', data.message)
+          setError('Invalid Credentials')
+        }
+      })
+      .catch((error) => console.error('Error:', error))
   };
 
   const isDisabled = () => {

@@ -1,17 +1,3 @@
-// import React from 'react'
-
-// function App() {
-//   return (
-//   <div>
-//       <h1>Hello World</h1>
-//   </div>
-//   )
-
-// }
-
-// export default App 
-
-
 import React, { useState , useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate} from 'react-router-dom'
 import Friends from './Friends'
@@ -36,6 +22,7 @@ export default function App() {
   const [editing, setEditing] = useState(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [formValues, setFormValues] = useState(initialValues) 
+  const [welcomeMessage, setWelcomeMessage] = useState('')
 
   const updateForm = (inputName, inputValue) => {
    
@@ -100,7 +87,7 @@ useEffect(() => {
           <Route path = '/' element = {
             <div className = 'loginForm'>
                 <h1> Welcome!  Log In to See Your Friends ... </h1>
-              <Login setIsLoggedIn={setIsLoggedIn}/> 
+              <Login setIsLoggedIn={setIsLoggedIn} setWelcomeMessage={setWelcomeMessage}/> 
             </div>
             } />
             
@@ -109,6 +96,7 @@ useEffect(() => {
           <Route path ='/friends' element ={
              isLoggedIn ? (
                 <div className = 'friendsList' >
+                <h3>{welcomeMessage}</h3>
                 <h1> My Friends </h1>
    
                 <FriendForm

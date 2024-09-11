@@ -32,7 +32,7 @@ router.post('/login', async (req, res, next) => {
       const token = generateToken(user)
       console.log(token)
       res.status(200).json({
-        message: `welcome, ${user.username}`,
+        message: `Welcome back, ${user.username}`,
         token,
       })
     } else {
