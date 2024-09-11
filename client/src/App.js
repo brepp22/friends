@@ -93,11 +93,11 @@ useEffect(() => {
             
             
            
-          <Route path ='/friends' element ={
+          <Route path ='/pets' element ={
              isLoggedIn ? (
                 <div className = 'friendsList' >
                 <h3>{welcomeMessage}</h3>
-                <h1> My Friends </h1>
+                <h1> Available Pets </h1>
    
                 <FriendForm
                 update={updateForm}

@@ -45,10 +45,12 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
           localStorage.setItem('token', data.token)
           setIsLoggedIn(true)
           setWelcomeMessage(`${data.message}! `)
-          navigate('/friends')
+          setValues(initialFormValues)
+          navigate('/pets')
         } else {
           console.error('Login failed:', data.message)
           setError('Invalid Credentials')
+          setWelcomeMessage('Invalid Credentials')
         }
       })
       .catch((error) => console.error('Error:', error))
@@ -59,6 +61,13 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
     const trimmedPassword = values.password.trim()
     return trimmedUsername.length < 3 || trimmedPassword.length < 3
   };
+
+  const toggleMode = () => {
+    setIsRegistering(!isRegistering);
+    setValues(initialFormValues);
+    setWelcomeMessage('')
+    setError(null)
+  }
 
   return (
     <form onSubmit={onSubmit}>
@@ -91,11 +100,16 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
         <button 
           type = "button"
           className = 'login-button'
-          onClick ={() => setIsRegistering(!isRegistering)}
+          onClick ={toggleMode}
         >
           {isRegistering ? 'Switch to Login' : 'Switch to Register'}
         </button>
         </div>
+        {isRegistering && (
+        <p style={{ color: 'green', marginTop: '10px' }}>
+          Please create a username and password to register.
+        </p>
+      )}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </form>
   );
