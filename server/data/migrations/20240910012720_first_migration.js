@@ -6,6 +6,7 @@ exports.up = function (knex) {
     })
     .createTable('pets', pets => {
       pets.increments();
+      pets.string('img');
       pets.string('petname', 255).notNullable();
       pets.string('breed', 50).notNullable();
       pets.integer('weight', 5).notNullable();

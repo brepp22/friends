@@ -34,10 +34,12 @@ useEffect(() => {
             <h1>Pets List</h1>
             <ul>
                 {pets.map(pet => (
-                    <li key={pet.id}>{pet.petname}
+                    <li key={pet.id}>
+                        {pet.petname}
+                   <p> <img src={pet.img} alt={pet.petname} style={{ width: '300px', height: '300px' }} /></p>
                    <ul> Breed: {pet.breed}</ul> 
                    <ul> Color: {pet.color} </ul>
-                   <ul>Weight: {pet.weight}</ul>
+                   <ul>Weight: {pet.weight} Pounds</ul>
                    <ul>Bio: {pet.bio} </ul>
                     </li> 
                 ))}

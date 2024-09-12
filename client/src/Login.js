@@ -48,6 +48,7 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
           setValues(initialFormValues)
           navigate('/pets')
         } else {
+          setIsLoggedIn(false)
           console.error('Login failed:', data.message)
           setError('Invalid Credentials')
           setWelcomeMessage('Invalid Credentials')
