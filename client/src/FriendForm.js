@@ -31,17 +31,16 @@ useEffect(() => {
     return (
         <form>
             <div>
-            <h1>Pets List</h1>
             <ul>
                 {pets.map(pet => (
-                    <li key={pet.id}>
+                    <ul key={pet.id} style={{border: '2px solid blue', borderRadius: '8px' , padding: '40px', maxWidth: '90%', boxSizing: 'border-box'}}>
                         {pet.petname}
-                   <p> <img src={pet.img} alt={pet.petname} style={{ width: '300px', height: '300px' }} /></p>
+                   <p> <img src={pet.img} alt={pet.petname} style={{ width: '300px', height: '300px' ,border: '2px solid red'}} /></p>
                    <ul> Breed: {pet.breed}</ul> 
                    <ul> Color: {pet.color} </ul>
                    <ul>Weight: {pet.weight} Pounds</ul>
                    <ul>Bio: {pet.bio} </ul>
-                    </li> 
+                    </ul> 
                 ))}
             </ul>
             </div>
