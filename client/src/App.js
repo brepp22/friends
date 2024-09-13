@@ -15,11 +15,11 @@ const initialValues = {
 
 
 export default function App() {
-  const [friends, setFriends] = useState([]) 
-  const [editing, setEditing] = useState(null)
+
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [formValues, setFormValues] = useState(initialValues) 
   const [welcomeMessage, setWelcomeMessage] = useState('')
+  const [username, setUsername] = useState('')
 
   const updateForm = (inputName, inputValue) => {
    
@@ -28,45 +28,8 @@ export default function App() {
       [inputName]: inputValue,
     })
   }
-useEffect(() => {
-  if(editing === null) {
-    setFormValues(initialValues)
-    }else{
-      const { username, interests } = friends.find(fr => fr.id === editing)
-      setFormValues({ username, interests })
-    }
-  } , [editing])
 
-  const edit = id => {
-    setEditing(id)
-  }
 
-  const editExisitingFriend = () => {
-    setFriends(prevFriends => prevFriends.map(fr => {
-      if(fr.id === editing){
-        return {...fr , ...formValues}
-      }
-        return fr
-    }))
-    setEditing(null)
-  }
-
-  const createNewFriend = () => {
-    const {username, interests} = formValues
-    const newFriend = {username, interests, id: getId()}
-    setFriends([...friends , newFriend])
-    setFormValues(initialValues)
-  }
-
-  const submitForm = (evt) => {
-    evt.preventDefault()
-    if(editing){
-      editExisitingFriend()
-    } else {
-      createNewFriend()
-    }
-    setFormValues(initialValues)
-    }
 
 
   return (
@@ -80,7 +43,7 @@ useEffect(() => {
           <Route path = '/' element = {
             <div className = 'loginForm'>
                 <h1> Welcome!  Login to See Available Pets ... </h1>
-              <Login setIsLoggedIn={setIsLoggedIn} setWelcomeMessage={setWelcomeMessage}/> 
+              <Login setIsLoggedIn={setIsLoggedIn} setWelcomeMessage={setWelcomeMessage} setUsername={setUsername}/> 
             </div>
             } />
             
@@ -93,19 +56,10 @@ useEffect(() => {
                 <h1 style={{ textAlign: 'center'}}> Available Pets </h1>
    
                 <FriendForm
-                update={updateForm}
-                submit={submitForm}
+                username={username}
                 values={formValues}
-                editing={editing}
+               
                 />
-
-            {
-              friends.map(friend => {
-              return (
-               <Friends key={friend.id} details={friend} onEdit={edit} />
-              )
-            })
-          }
            </div>
              ) : (
               <Navigate to ='/' />

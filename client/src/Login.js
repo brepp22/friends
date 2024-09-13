@@ -8,7 +8,7 @@ const initialFormValues = {
 
 
 
-export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
+export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername }) {
   const [values, setValues] = useState(initialFormValues);
   const [error, setError] = useState(null)
   const [isRegistering, setIsRegistering] = useState(false)
@@ -43,6 +43,7 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage }) {
         } else if (data.token) {
           console.log('Login successful:', data)
           localStorage.setItem('token', data.token)
+          setUsername(values.username)
           setIsLoggedIn(true)
           setWelcomeMessage(`${data.message}! `)
           setValues(initialFormValues)
