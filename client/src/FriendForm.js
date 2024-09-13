@@ -33,14 +33,31 @@ useEffect(() => {
             <div>
             <ul>
                 {pets.map(pet => (
-                    <ul key={pet.id} style={{border: '2px solid blue', borderRadius: '8px' , padding: '40px', maxWidth: '90%', boxSizing: 'border-box'}}>
-                        {pet.petname}
-                   <p> <img src={pet.img} alt={pet.petname} style={{ width: '300px', height: '300px' ,border: '2px solid red'}} /></p>
-                   <ul> Breed: {pet.breed}</ul> 
-                   <ul> Color: {pet.color} </ul>
-                   <ul>Weight: {pet.weight} Pounds</ul>
-                   <ul>Bio: {pet.bio} </ul>
-                    </ul> 
+                    <ul key={pet.id}   style={{ 
+                        border: '2px solid blue', 
+                        borderRadius: '8px', 
+                        padding: '40px', 
+                        maxWidth: '90%', 
+                        boxSizing: 'border-box', 
+                        display: 'flex', 
+                        alignItems: 'center',
+                        marginBottom: '15px',
+                      }}>
+                   <img src={pet.img} alt={pet.petname} 
+                    style={{ 
+                        width: '300px', 
+                        height: '300px', 
+                        border: '2px solid red', 
+                        marginRight: '20px',
+                    }}  />
+                     <div>
+                        <h3>{pet.petname}</h3>
+                        <p>Breed: {pet.breed}</p>
+                        <p>Color: {pet.color}</p>
+                        <p>Weight: {pet.weight} Pounds</p>
+                        <p>Bio: {pet.bio}</p>
+                    </div>
+                 </ul>
                 ))}
             </ul>
             </div>

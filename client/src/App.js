@@ -90,7 +90,7 @@ useEffect(() => {
              isLoggedIn ? (
                 <div className = 'friendsList' >
                 <h3>{welcomeMessage}</h3>
-                <h1> Available Pets </h1>
+                <h1 style={{ textAlign: 'center'}}> Available Pets </h1>
    
                 <FriendForm
                 update={updateForm}
