@@ -116,18 +116,33 @@ const handleCommentSubmit = async (evt, petId) => {
                   <h4>Comments</h4>
                   
                   <div>
-              <textarea
+              <input
                 value={commentText[pet.pet_id] || ''}
                 onChange={(evt) => handleCommentChange(evt, pet.pet_id)}
                 placeholder="Add a comment"
-                style={{ width: '100%', height: '100px', marginBottom: '10px' }}
-              />
+                style={{
+                    width: '600px',
+                    height: '35px',
+                    padding: '10px',
+                    marginBottom: '10px',
+                    border: '2px solid #ccc',
+                    borderRadius: '5px',
+                    fontSize: '16px',
+                    boxSizing: 'border-box',
+                    backgroundColor: '#f9f9f9',
+                    outline: 'none',
+                  }}
+                  onFocus={(e) => (e.target.style.border = '2px solid #4CAF50')}
+                  onBlur={(e) => (e.target.style.border = '2px solid #ccc')}
+                />
+                
               <button
                 onClick={((evt) => handleCommentSubmit(evt, pet.pet_id))}
                 type="button"
                 style={{
                   padding: '10px 20px',
-                  backgroundColor: 'blue',
+                  backgroundColor: 'black',
+                  borderRadius: '10px',
                   color: 'white',
                   border: 'none',
                   cursor: 'pointer',
@@ -136,13 +151,13 @@ const handleCommentSubmit = async (evt, petId) => {
                 Submit Comment
               </button>
               <div>{pet.petname}'s comments</div>
-              <ul>
+                <div>
                     {(comments[pet.pet_id] || []).map((comment, index) => (
-                      <li key={index} style={{ marginBottom: '10px', borderBottom: '1px solid #ccc' }}>
-                        {comment.username} : {comment.comment}
-                      </li>
+                      <ul key={index} style={{ marginBottom: '10px', borderBottom: '1px solid #ccc' }}>
+                       💬 {comment.username} : {comment.comment}
+                      </ul>
                     ))}
-                  </ul>
+                  </div>
               </div> 
                     </div>
                     </div>
