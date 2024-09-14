@@ -6,10 +6,15 @@ async function find() {
     .orderBy('pet_id', 'asc')
 }
 
-async function getCommentsByPetId(pet_id) {
+async function getCommentsByPetId(pet_id, limit = null) {
     return db('comments')
         .where('pet_id', pet_id)
-        .select('comment', 'pet_id', 'username');
+        .orderBy('created_at', 'desc');
+        if (limit) {
+            query = query.limit(limit);
+        }
+    
+        return query
 }
 
 async function getById(pet_id){

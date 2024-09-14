@@ -12,8 +12,9 @@ router.get('/pets' , async (req,res,next) => {
 
 router.get('/pets/:pet_id/comments', async (req, res, next) => {
     try {
-        const { pet_id } = req.params;
-        const comments = await Pets.getCommentsByPetId(pet_id);
+        const { pet_id } = req.params
+        const {limit} = req.query
+        const comments = await Pets.getCommentsByPetId(pet_id, limit ? parseInt(limit, 10) : null);
         
         if (!comments.length) {
             return res.status(404).json({ message: 'No comments found for this pet.' });
