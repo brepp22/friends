@@ -14,26 +14,37 @@ useEffect(() => {
             'Content-Type': 'application/json',
         }
     })
-    .then(res => res.json())
-    .then(data => {
-        const petComments = data.reduce((acc, pet) => {
-            if (!acc[pet.pet_id]) {
-                acc[pet.pet_id] = {
-                    ...pet,
-                    comments: [],
-                };
-            }
-            if (pet.comment) {
-                acc[pet.pet_id].comments.push(pet.comment);
-            }
-            return acc;
-        }, {});
-        setPets(Object.values(petComments));
-    })
-    .catch(error => {
-        setError(error); 
-    });
-} ,[])
+    .then((res) => res.json())
+    .then((data) => {
+        setPets(data)
+
+        const fetchCommentsPromises = data.map((pet) =>
+          fetch(`http://localhost:9000/api/pets/${pet.pet_id}/comments`)
+              .then((res) => res.json())
+              .then((commentData) => ({
+                  pet_id: pet.pet_id,
+                  comments: Array.isArray(commentData) ? commentData : [],
+              }))
+              .catch((error) => {
+                  console.error('Error fetching comments:', error)
+                  return {  pet_id: pet.pet_id, comments: [] }
+              })
+      );
+
+      Promise.all(fetchCommentsPromises)
+          .then((commentsArray) => {
+              const commentsMap = commentsArray.reduce((acc, { pet_id, comments }) => {
+                  acc[pet_id] = comments;
+                  return acc;
+              }, {});
+
+              setComments(commentsMap)
+          });
+  })
+  .catch((error) => {
+      setError(error);
+  });
+}, []);
 
 const handleCommentChange = (evt, petId) => {
     setCommentText({
@@ -41,8 +52,6 @@ const handleCommentChange = (evt, petId) => {
         [petId]: evt.target.value,
     });
 };
-
-
 
 const handleCommentSubmit = async (evt, petId) => {
     evt.preventDefault()
@@ -88,7 +97,7 @@ const handleCommentSubmit = async (evt, petId) => {
             <div>
             <ul>
                 {pets.map(pet => (
-                    <ul key={pet.id}   style={{ 
+                    <ul key={pet.pet_id}   style={{ 
                         border: '2px solid blue', 
                         borderRadius: '8px', 
                         padding: '40px', 
@@ -164,11 +173,9 @@ const handleCommentSubmit = async (evt, petId) => {
                  </ul>
                 ))}
             </ul>
-           
-
-             
               </div>
     )
 
-}
+  }
+
 

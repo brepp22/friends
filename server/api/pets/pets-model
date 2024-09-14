@@ -2,22 +2,30 @@ const db = require('../../data/db-config')
 
 async function find() {
     return db('pets')
-    .leftJoin('comments', 'pets.pet_id', 'comments.pet_id')
-    .select('pets.*', 'comments.comment')
-    .orderBy('pets.pet_id', 'asc')
+    .select('*')
+    .orderBy('pet_id', 'asc')
+}
+
+async function getCommentsByPetId(pet_id) {
+    return db('comments')
+        .where('pet_id', pet_id)
+        .select('comment', 'pet_id', 'username');
 }
 
 async function getById(pet_id){
     return db('pets').where('pet_id' , pet_id).first()
 }
 
-async function addComment({comment, pet_id}) {
-    return db('comments').insert({comment, pet_id}).returning('*')
+async function addComment({comment, pet_id, username}) {
+    return db('comments').
+    insert({comment, pet_id, username})
+    .returning('*')
     .then(rows => rows[0])
 }
 
 module.exports = {
     find,
     getById,
-    addComment
+    addComment,
+    getCommentsByPetId,
 }

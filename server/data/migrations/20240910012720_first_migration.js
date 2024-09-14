@@ -23,6 +23,11 @@ exports.up = function (knex) {
         .onDelete('CASCADE')
       comments.string('comment', 255)
       comments.timestamp('created_at').defaultTo(knex.fn.now())
+      comments.string('username')
+        .notNullable()
+        .references('username')
+        .inTable('users')
+        .onDelete('CASCADE')
     })
   };
   
