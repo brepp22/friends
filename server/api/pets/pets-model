@@ -30,34 +30,29 @@ async function addComment({comment, pet_id, username}) {
     .then(rows => rows[0])
 }
 
+
 async function updateLikeStatus(pet_id, username, like) {
-    console.log('Updating like status:', { pet_id, username, like });
-
-    const existingLike = await db('likes')
-        .where({ pet_id, username})
-        .first();
-
-    if (existingLike) {
-        console.log('Existing like found. Updating like status...');
-        return db('likes')
+    try {
+        const existingLike = await db('likes')
             .where({ pet_id, username })
-            .update({ like })
-            .returning('*')
-            .then(rows => {
-                console.log('Updated like:', rows[0]);
-                return rows[0];
-            });
-    } else {
-        console.log('No existing like. Inserting new like record...');
-        return db('likes')
-            .insert({ pet_id, username, like })
-            .returning('*')
-            .then(rows => {
-                console.log('Inserted like:', rows[0]);
-                return rows[0];
-            });
+            .first();
+
+        if (existingLike) {
+           
+            await db('likes')
+                .where({ pet_id, username })
+                .update({ like });
+        } else {
+            
+            await db('likes').insert({ pet_id, username, like });
+        }
+
+        return { pet_id, username, like }; 
+    } catch (error) {
+        throw new Error('Error updating like status');
     }
 }
+
 
 
 module.exports = {

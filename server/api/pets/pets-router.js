@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Pets = require('../pets/pets-model')
+const db = require('../../data/db-config')
 
 router.get('/pets' , async (req,res,next) => {
    try {
@@ -56,11 +57,25 @@ router.patch('/pets/:pet_id/like', async (req, res) => {
     }
 });
 
-module.exports = router;
+router.get('/users/:username/liked-pets', async (req, res) => {
+    const { username } = req.params;
+    try {
+        const likedPets = await db('likes')
+            .where({ username, like: true })
+            .join('pets', 'likes.pet_id', 'pets.pet_id')
+            .select('pets.*');
 
-
-
-
+        res.json(likedPets);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch liked pets' });
+    }
+});
 
 
 module.exports = router
+
+
+
+
+
+
