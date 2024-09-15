@@ -29,10 +29,27 @@ exports.up = function (knex) {
         .inTable('users')
         .onDelete('CASCADE')
     })
+    .createTable('likes', likes => {
+      likes.boolean('like').defaultTo(false)
+      likes.integer('pet_id')
+        .unsigned()
+        .notNullable()
+        .references('pet_id')
+        .inTable('pets')
+        .onDelete('CASCADE')
+      likes.string('username')
+        .unsigned()
+        .notNullable()
+        .references('username')
+        .inTable('users')
+        .onDelete('CASCADE')
+      likes.primary(['pet_id', 'username'])
+    })
   };
   
   exports.down = function (knex) {
-    return knex.schema.dropTableIfExists('comments')
+    return knex.schema.dropTableIfExists('likes')
+      .dropTableIfExists('comments')
       .dropTableIfExists('pets')
       .dropTableIfExists('users')
   };

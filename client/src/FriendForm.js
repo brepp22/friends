@@ -6,6 +6,9 @@ export default function FriendForm({ username }) {
     const [commentText, setCommentText] = useState('');
     const [comments, setComments] = useState({});
     const [showAllComments, setShowAllComments] = useState({});
+    const [likedPets, setLikedPets] = useState({});
+
+    
 
     useEffect(() => {
         fetch('http://localhost:9000/api/pets', {
@@ -17,6 +20,12 @@ export default function FriendForm({ username }) {
         .then((res) => res.json())
         .then((data) => {
             setPets(data);
+
+            const initialLikedPets = data.reduce((acc, pet) => {
+              acc[pet.pet_id] = pet.like; 
+              return acc;
+          }, {});
+          setLikedPets(initialLikedPets)
 
             const fetchRecentCommentsPromises = data.map((pet) =>
                 fetch(`http://localhost:9000/api/pets/${pet.pet_id}/comments?limit=3`)
@@ -122,6 +131,38 @@ export default function FriendForm({ username }) {
         }));
     };
 
+    
+    const handleLikeToggle = async (petId) => {
+        const newLikeStatus = !likedPets[petId]; 
+        console.log('Current liked status:', likedPets[petId]); 
+    
+        try {
+            const response = await fetch(`http://localhost:9000/api/pets/${petId}/like`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, like: newLikeStatus }),  // Send username and new like status
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to update like status');
+            }
+    
+            const updatedPet = await response.json();
+            console.log('Updated pet data:', updatedPet); // Debug line
+    
+            setLikedPets(prevLikedPets => ({
+                ...prevLikedPets,
+                [petId]: updatedPet.like,
+            }));
+        } catch (error) {
+            console.error('Error updating like status:', error);
+        }
+    };
+    
+    
+
     return (
         <div>
             <ul>
@@ -213,6 +254,21 @@ export default function FriendForm({ username }) {
                                         ))}
                                     </div>
                                 </div> 
+
+                                <button
+                                    onClick={() => handleLikeToggle(pet.pet_id)}
+                                    style={{
+                                        backgroundColor: likedPets[pet.pet_id] ? 'red' : 'gray',
+                                        border: 'none',
+                                        color: 'white',
+                                        padding: '10px',
+                                        borderRadius: '5px',
+                                        cursor: 'pointer',
+                                        marginTop: '10px',
+                                    }}
+                                >
+                                    {likedPets[pet.pet_id] ? '❤️ Liked' : '♡ Like'}
+                                </button>
                             </div>
                         </div>
                     </ul>

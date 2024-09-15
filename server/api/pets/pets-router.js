@@ -43,4 +43,24 @@ router.post('/pets/:id/comments', async (req, res, next) => {
    }
 });
 
+
+router.patch('/pets/:pet_id/like', async (req, res) => {
+    const { pet_id } = req.params;
+    const { username, like } = req.body;
+
+    try {
+        const updatedLike = await Pets.updateLikeStatus(pet_id, username, like);
+        res.json(updatedLike);
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to update like status' });
+    }
+});
+
+module.exports = router;
+
+
+
+
+
+
 module.exports = router
