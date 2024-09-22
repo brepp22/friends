@@ -54,6 +54,22 @@
   color: #61dafb;
 }
 
+.landing {
+  background-color: rgb(77, 150, 195);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.landing-img {
+  max-width: 500px;
+  max-height: 100%;
+  object-fit: cover; 
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

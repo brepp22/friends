@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link, Navigate} from 'react-router-dom'
 import Friends from './Friends'
 import FriendForm from './FriendForm'
 import Login from './Login'
+import Landing from './Landing'
 import './App.css'
 
 let id = 0 
@@ -35,12 +36,18 @@ export default function App() {
   return (
     <BrowserRouter>
         <nav className='nav'>
-           <Link to='/'> Login </Link> 
+          <Link to ='/'>Home</Link>
+           <Link to='/login'> Login </Link> 
            <Link to="/pets">Pets</Link>
         </nav>
 
         <Routes>
-          <Route path = '/' element = {
+          <Route path = '/' element ={
+            <div>
+            <Landing />
+            </div>
+           }/>
+          <Route path = '/login' element = {
             <div className = 'loginForm'>
                 <h1> Welcome!  Login to See Available Pets ... </h1>
               <Login setIsLoggedIn={setIsLoggedIn} setWelcomeMessage={setWelcomeMessage} setUsername={setUsername}/> 
