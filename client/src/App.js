@@ -30,6 +30,12 @@ export default function App() {
     })
   }
 
+  const handleLogout = () => {
+    setIsLoggedIn(false)
+    setWelcomeMessage('')
+    setUsername('')
+    localStorage.removeItem('token')
+  }
 
 
 
@@ -39,6 +45,11 @@ export default function App() {
           <Link to ='/'>Home</Link>
            <Link to='/login'> Login </Link> 
            <Link to="/pets">Pets</Link>
+           {isLoggedIn && (
+            <button onClick = {handleLogout} style={{ marginLeft: 'auto', background: 'red', color: 'white' , padding: '10px 20px', width: '120px', border: 'none'}}>
+              Logout
+            </button>
+           )}
         </nav>
 
         <Routes>
@@ -69,11 +80,11 @@ export default function App() {
                 />
            </div>
              ) : (
-              <Navigate to ='/' />
+              <Navigate to ='/login' />
+              
              )
        } />
-      
-      
+
         </Routes>
    
     </BrowserRouter>

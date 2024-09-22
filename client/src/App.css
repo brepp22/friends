@@ -39,33 +39,28 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
 .landing {
   background-color: rgb(77, 150, 195);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh; 
+  width: 100%;
 }
 
 .landing-img {
   max-width: 500px;
-  max-height: 100%;
-  object-fit: cover; 
+  max-height: auto;
+  display: block;
+}
+
+.landing h2{
+  text-align: center;
+  padding-bottom: 30px;
+  margin: 20px 0;
 }
 
 
