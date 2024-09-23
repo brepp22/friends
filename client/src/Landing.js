@@ -11,8 +11,10 @@ export default function Landing() {
                 <h1> Welcome to Elleanor's Pawfect Matches</h1>
                 <h2> Login to see your pawfect match</h2>
             </div>
-           <div>
-            <img className ='landing-img' src='Elleanor.png' alt = 'french bulldog'/>
+           <div className = 'landing-img'>
+            <img  src='Elleanor1.png' alt = 'french bulldog'/>
+            <img  src ='Elleanor2.png' alt='french bulldog' />
+            <img  src='Elleanor3.png' alt= 'french bulldog' />
             </div> 
         </div>
     )

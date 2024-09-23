@@ -164,11 +164,11 @@ export default function FriendForm({ username }) {
     
 
     return (
-        <div>
+        <div className='pet-container'>
             <ul>
                 {pets.map(pet => (
                     <ul key={pet.pet_id} style={{ 
-                        border: '2px solid blue', 
+                        border: '2px solid rgb(112, 73, 47)', 
                         borderRadius: '8px', 
                         padding: '40px', 
                         maxWidth: '90%', 
@@ -180,7 +180,7 @@ export default function FriendForm({ username }) {
                         <img src={pet.img} alt={pet.petname} style={{ 
                             width: '300px', 
                             height: '300px', 
-                            border: '2px solid red', 
+                            border: '2px solid rgb(112, 73, 47)', 
                             marginRight: '20px',
                         }} />
                         <div>
@@ -200,7 +200,7 @@ export default function FriendForm({ username }) {
                                         placeholder="Add a comment"
                                         style={{
                                             width: '600px',
-                                            height: '35px',
+                                            height: '40px',
                                             padding: '10px',
                                             marginBottom: '10px',
                                             border: '2px solid #ccc',
@@ -209,8 +209,9 @@ export default function FriendForm({ username }) {
                                             boxSizing: 'border-box',
                                             backgroundColor: '#f9f9f9',
                                             outline: 'none',
+                                            marginTop: '10px',
                                         }}
-                                        onFocus={(e) => (e.target.style.border = '2px solid #4CAF50')}
+                                        onFocus={(e) => (e.target.style.border = '2px solid rgb(112, 73, 47)')}
                                         onBlur={(e) => (e.target.style.border = '2px solid #ccc')}
                                     />
                                     
@@ -218,12 +219,14 @@ export default function FriendForm({ username }) {
                                         onClick={(evt) => handleCommentSubmit(evt, pet.pet_id)}
                                         type="button"
                                         style={{
-                                            padding: '10px 20px',
-                                            backgroundColor: 'black',
+                                            padding: '10px',
+                                            backgroundColor: 'rgb(112, 73, 47)',
                                             borderRadius: '10px',
                                             color: 'white',
                                             border: 'none',
                                             cursor: 'pointer',
+                                            marginLeft: '5px',
+                                            height: '35px',
                                         }}
                                     >
                                         Submit Comment
@@ -234,12 +237,13 @@ export default function FriendForm({ username }) {
                                         type="button"
                                         style={{
                                             padding: '10px 20px',
-                                            backgroundColor: 'blue',
+                                            backgroundColor: 'rgb(112, 73, 47)',
                                             borderRadius: '10px',
                                             color: 'white',
                                             border: 'none',
                                             cursor: 'pointer',
-                                            marginLeft: '10px'
+                                            marginLeft: '10px',
+                                            marginBottom: '10px'
                                         }}
                                     >
                                         {showAllComments[pet.pet_id] ? 'Show Recent' : 'Show All'}
@@ -248,7 +252,7 @@ export default function FriendForm({ username }) {
                                     <div>{pet.petname}'s comments</div>
                                     <div>
                                         {(showAllComments[pet.pet_id] ? comments[pet.pet_id] : comments[pet.pet_id]?.slice(0, 3) || []).map((comment, index) => (
-                                            <ul key={index} style={{ marginBottom: '10px', borderBottom: '1px solid #ccc' }}>
+                                            <ul key={index} style={{ marginTop: '10px', marginBottom: '10px', borderBottom: '1px solid #ccc' }}>
                                                 💬 {comment.username} : {comment.comment}
                                             </ul>
                                         ))}

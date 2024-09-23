@@ -108,7 +108,7 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
         </button>
         </div>
         {isRegistering && (
-        <p style={{ color: 'green', marginTop: '10px' }}>
+        <p className = 'register' style={{ color: 'green', marginTop: '10px' }}>
           Please create a username and password to register.
         </p>
       )}

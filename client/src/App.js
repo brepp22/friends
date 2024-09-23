@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Link, Navigate} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, Navigate, useNavigate} from 'react-router-dom'
 import Friends from './Friends'
 import FriendForm from './FriendForm'
 import Login from './Login'
@@ -13,7 +13,6 @@ const initialValues = {
   username: '',
   interests: '',
 }
-
 
 export default function App() {
 
@@ -35,21 +34,20 @@ export default function App() {
     setWelcomeMessage('')
     setUsername('')
     localStorage.removeItem('token')
-  }
-
-
+  } 
 
   return (
     <BrowserRouter>
         <nav className='nav'>
-          <Link to ='/'>Home</Link>
-           <Link to='/login'> Login </Link> 
-           <Link to="/pets">Pets</Link>
+          <Link to ='/' className = 'home-nav'>🐱 Home</Link>
+           <Link to='/login' className = 'login-nav'>🐶 Login </Link> 
+           <Link to="/pets" className = 'pets-nav'>🦴 Pets</Link>
            {isLoggedIn && (
-            <button onClick = {handleLogout} style={{ marginLeft: 'auto', background: 'red', color: 'white' , padding: '10px 20px', width: '120px', border: 'none'}}>
+            <button className = 'nav-logout' onClick = {handleLogout}>
               Logout
             </button>
            )}
+           
         </nav>
 
         <Routes>
@@ -70,7 +68,7 @@ export default function App() {
           <Route path ='/pets' element ={
              isLoggedIn ? (
                 <div className = 'friendsList' >
-                <h3>{welcomeMessage}</h3>
+                <h3 className= 'welcome-message'>{welcomeMessage}</h3>
                 <h1 style={{ textAlign: 'center'}}> Available Pets </h1>
    
                 <FriendForm
