@@ -115,7 +115,7 @@ export default function FriendForm({ username }) {
                 const newComment = await response.json();
                 setComments(prevComments => ({
                     ...prevComments,
-                    [petId]: [...(prevComments[petId] || []), newComment],
+                    [petId]: [newComment, ...(prevComments[petId] || [])],
                 }));
                 setCommentText(prevCommentTexts => ({
                     ...prevCommentTexts,
