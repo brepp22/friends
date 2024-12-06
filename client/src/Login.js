@@ -10,6 +10,7 @@ const initialFormValues = {
 export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername }) {
   const [values, setValues] = useState(initialFormValues);
   const [error, setError] = useState(null);
+  const [message, setMessage] = useState(null);
   const [isRegistering, setIsRegistering] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
       if (response.ok) {
         if (isRegistering) {
           setError(null);
-          setWelcomeMessage('Registration successful! Please log in.');
+          setMessage(data.message);
           setValues(initialFormValues);
           setIsRegistering(false);
         } else {
@@ -117,6 +118,7 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
           {isRegistering ? 'Switch to Login' : 'Switch to Register'}
         </button>
         {error && <p className="error-message">{error}</p>}
+        {message && <p className="message">{message}</p>}
       </form>
     </div>
   );

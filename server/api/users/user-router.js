@@ -5,16 +5,23 @@ const jwt =  require('jsonwebtoken')
 const User = require('../users/users-model')
 const {JWT_SECRET} = require('../config')
 
-router.post('/register' , (req, res, next) => {
+router.post('/register' , async (req, res, next) => {
   const { username , password } = req.body
 
-  const hash = bcrypt.hashSync(password, 8)
-
-  User.add({username, password: hash})
-    .then(newUser => {
-      res.status(201).json(newUser)
-    })
-    .catch(next)
+  const hash = bcrypt.hashSync(password, 8);
+  try{
+  const newUser = await User.add({username, password: hash});
+  res.status(201).json({
+    message: 'User registered successfully! Please login',
+    users: newUser,
+  });
+  }catch(err){
+    if (err.code === 'SQLITE_CONSTRAINT') { 
+      res.status(400).json({ message: 'Username is already taken.' });
+    } else {
+      next(); 
+    }
+    }
 });
 
 router.post('/login', async (req, res, next) => {
@@ -36,7 +43,7 @@ router.post('/login', async (req, res, next) => {
         token,
       })
     } else {
-      return res.status(401).json({ message: 'invalid credentials' })
+      return res.status(401).json({ message: 'Invalid Credentials' })
     }
   } catch (error) {
     console.error('Login error:', error)
