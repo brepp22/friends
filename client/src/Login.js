@@ -34,6 +34,8 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
 
   const onSubmit = async (evt) => {
     evt.preventDefault();
+    setMessage(null);
+    setError(null);
 
     if (!validateInputs()) return;
 
@@ -89,6 +91,8 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
     <div className="login-container">
       <h2>{isRegistering ? 'Register' : 'Login'}</h2>
       <form onSubmit={onSubmit} className="login-form">
+      {error && <p className="error-message">{error}</p>}
+      {message && <p className="message">{message}</p>}
         <div className="input-group">
           <label htmlFor="username">Username</label>
           <input
@@ -117,8 +121,6 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
         <button type="button" onClick={toggleMode} className="toggle-button">
           {isRegistering ? 'Switch to Login' : 'Switch to Register'}
         </button>
-        {error && <p className="error-message">{error}</p>}
-        {message && <p className="message">{message}</p>}
       </form>
     </div>
   );
