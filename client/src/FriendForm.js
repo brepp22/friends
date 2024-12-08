@@ -171,7 +171,7 @@ export default function FriendForm({ username }) {
                         display: 'flex', 
                         alignItems: 'center', 
                         marginBottom: '20px', 
-                        backgroundColor: '#f9f0e4', 
+                        backgroundColor: '#ece2da', 
                         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
                         transition: 'transform 0.2s, box-shadow 0.2s',
                         cursor: 'pointer',
@@ -211,7 +211,7 @@ export default function FriendForm({ username }) {
                                         onChange={(evt) => handleCommentChange(evt, pet.pet_id)}
                                         placeholder="Add a comment"
                                         style={{
-                                            width: '350px',
+                                            width: '300px',
                                             height: '40px',
                                             padding: '10px',
                                             marginBottom: '10px',

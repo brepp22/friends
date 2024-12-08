@@ -58,7 +58,7 @@ export default function App() {
            }/>
           <Route path = '/login' element = {
             <div className = 'loginForm'>
-                <h1> Welcome!  Login to See Available Pets ... </h1>
+                <h1>  </h1>
               <Login setIsLoggedIn={setIsLoggedIn} setWelcomeMessage={setWelcomeMessage} setUsername={setUsername}/> 
             </div>
             } />
@@ -68,8 +68,8 @@ export default function App() {
           <Route path ='/pets' element ={
              isLoggedIn ? (
                 <div className = 'friendsList' >
-                <h3 className= 'welcome-message'>{welcomeMessage}</h3>
-                <h1 style={{ textAlign: 'center'}}> Available Pets </h1>
+                <h3 className='welcome-message'>{welcomeMessage}!</h3>
+                <h1 style={{ textAlign: 'center'}}> </h1>
    
                 <FriendForm
                 username={username}
