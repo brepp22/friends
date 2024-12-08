@@ -241,6 +241,18 @@ h1{
   font-family: 'Trebuchet MS';
 }
 
+.profile-like-pet img{
+  width: 350px; 
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px; 
+  display: flex;
+  justify-content: center;
+}
+
+.profile-like-pet{
+  font-family: 'Roboto', sans-serif; 
+}
 
 
 

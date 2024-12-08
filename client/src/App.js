@@ -88,9 +88,13 @@ export default function App() {
        } />
 
        <Route path ='/profile' element = {
+         isLoggedIn ? (
         <div className = 'profile'>
           <Profile username={username} /> 
         </div>
+         ) : (
+          <Navigate to ='/login' />
+         )
        } />
       
 

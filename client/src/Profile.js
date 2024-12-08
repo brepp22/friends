@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css'
 
 function Profile({ username }) { 
   const [likedPets, setLikedPets] = useState([]);
@@ -28,21 +29,21 @@ function Profile({ username }) {
   }
 
   return (
-    <div>
+    <div className='profile'>
       <h2>{username}'s Profile</h2>
       <h3>Liked Pets</h3>
-      <div>
+      <div className='profile-like-pet'>
         {likedPets.length > 0 ? (
           <ul>
             {likedPets.map(pet => (
-              <li key={pet.pet_id}>
+              <div key={pet.pet_id}>
                 <img src={pet.img} alt={pet.petname} />
                 <p>{pet.petname} - {pet.breed} - {pet.color}</p>
-              </li>
+              </div>
             ))}
           </ul>
         ) : (
-          <p>No liked pets found.</p>
+          <p>No Liked Pets Yet...</p>
         )}
       </div>
     </div>
