@@ -24,9 +24,18 @@ async function add({ username, password }) {
     return findById(created_user_id)
   }
 
+  async function getLikedPets(username) {
+    return db('likes')
+        .join('pets', 'likes.pet_id', '=', 'pets.pet_id') 
+        .select('pets.pet_id', 'pets.petname', 'pets.breed', 'pets.color', 'pets.img') 
+        .where('likes.username', username) 
+        .andWhere('likes.like', true); 
+}
+
 module.exports = {
     find, 
     findBy,
     add,
     findById,
+    getLikedPets,
 }

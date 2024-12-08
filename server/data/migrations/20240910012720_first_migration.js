@@ -38,7 +38,6 @@ exports.up = function (knex) {
         .inTable('pets')
         .onDelete('CASCADE')
       likes.string('username')
-        .unsigned()
         .notNullable()
         .references('username')
         .inTable('users')

@@ -4,6 +4,7 @@ import Friends from './Friends'
 import FriendForm from './FriendForm'
 import Login from './Login'
 import Landing from './Landing'
+import Profile from './Profile'
 import './App.css'
 
 let id = 0 
@@ -41,6 +42,9 @@ export default function App() {
         <nav className='nav'>
           <Link to ='/' className = 'home-nav'>🐱 Home</Link>
            <Link to='/login' className = 'login-nav'>🐶 Login </Link> 
+           {isLoggedIn && (
+           <Link to ="/profile" className = 'profile-nav'> Profile </Link>
+           )}
            <Link to="/pets" className = 'pets-nav'>🦴 Pets</Link>
            {isLoggedIn && (
             <button className = 'nav-logout' onClick = {handleLogout}>
@@ -82,6 +86,13 @@ export default function App() {
               
              )
        } />
+
+       <Route path ='/profile' element = {
+        <div className = 'profile'>
+          <Profile username={username} /> 
+        </div>
+       } />
+      
 
         </Routes>
    

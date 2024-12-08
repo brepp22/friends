@@ -51,6 +51,17 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
+router.get('/user/:username/liked-pets', async (req, res) => {
+  const { username } = req.params;
+
+  try {
+    const pets = await User.getLikedPets(username);
+    res.json(pets); 
+  } catch (err) {
+    res.status(500).json({ message: 'Error retrieving liked pets', error: err });
+  }
+});
+
 function generateToken(user) {
   const payload = {
     subject: user.id,

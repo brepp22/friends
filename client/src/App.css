@@ -125,6 +125,10 @@ html, body {
   background-color: rgb(73, 40, 18);
 }
 
+.profile-nav {
+  background-color: rgb(73, 40, 18);
+}
+
 .nav-logout {
   margin-left: auto;
   background-color: rgb(112, 73, 47);
@@ -153,27 +157,26 @@ html, body {
 }
 
 .landing-img {
-  margin-bottom: 30px; /* Increase space below image */
-  border: 8px solid #70472F; /* Subtle brown border instead of black */
+  margin-bottom: 30px; 
+  border: 8px solid #70472F; 
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Adds depth with subtle shadow */
-  transition: transform 0.3s ease; /* Smooth transform effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+  transition: transform 0.3s ease; 
 }
 
 .landing-img:hover {
-  transform: scale(1.05); /* Slight zoom effect when hovering */
+  transform: scale(1.05); 
 }
 
-/* Image styling */
+
 .landing-img img {
-  width: 300px; /* Consistent image width */
+  width: 350px; 
   height: auto;
-  object-fit: contain; /* Keeps aspect ratio */
-  border-radius: 12px; /* Matches container's rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow around image */
+  object-fit: contain;
+  border-radius: 12px; 
 }
 
-/* Info section styling */
+
 .landing-info {
   text-align: center;
   color: #70472F; /* Dark brown for text */
@@ -181,7 +184,6 @@ html, body {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
-  transition: transform 0.3s ease; /* Smooth transform effect */
   width: 80%; /* Restrict the width of the info container */
   max-width: 700px; /* Ensures content doesn't stretch too far */
   margin: 0 auto; /* Center the container horizontally */
