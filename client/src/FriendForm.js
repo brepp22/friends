@@ -83,11 +83,6 @@ export default function FriendForm({ username }) {
         }
     }, [username]);
 
-  
-    
-    
-    
-
     const handleCommentChange = (evt, petId) => {
         setCommentText({
             ...commentText,
@@ -168,23 +163,40 @@ export default function FriendForm({ username }) {
             <ul>
                 {pets.map(pet => (
                     <ul key={pet.pet_id} style={{ 
-                        border: '2px solid rgb(112, 73, 47)', 
-                        borderRadius: '8px', 
-                        padding: '40px', 
+                        border: '1px solid rgba(112, 73, 47, 0.5)', 
+                        borderRadius: '12px', 
+                        padding: '20px', 
                         maxWidth: '90%', 
                         boxSizing: 'border-box', 
                         display: 'flex', 
-                        alignItems: 'center',
-                        marginBottom: '15px',
-                    }}>
+                        alignItems: 'center', 
+                        marginBottom: '20px', 
+                        backgroundColor: '#f9f0e4', 
+                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
+                        transition: 'transform 0.2s, box-shadow 0.2s',
+                        cursor: 'pointer',
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'scale(1.02)';
+                        e.currentTarget.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.15)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                        e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+                      }}
+                    >
                         <img src={pet.img} alt={pet.petname} style={{ 
-                            width: '300px', 
-                            height: '300px', 
-                            border: '2px solid rgb(112, 73, 47)', 
-                            marginRight: '20px',
+                             width: '200px', 
+                             height: '150px',  
+                             marginRight: '20px', 
+                             borderRadius: '8px', 
+                             objectFit: 'cover', 
+                             boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', 
                         }} />
-                        <div>
-                            <h3>{pet.petname}</h3>
+                        <div style={{ flex: 1 , padding: '12px' , borderRadius: '8px'}}>
+                        <h3 style={{ margin: '0 0 10px', fontSize: '1.5rem', color: '#70472F' }}>
+                            {pet.petname}
+                        </h3>
                             <p>Breed: {pet.breed}</p>
                             <p>Color: {pet.color}</p>
                             <p>Weight: {pet.weight} Pounds</p>
@@ -199,7 +211,7 @@ export default function FriendForm({ username }) {
                                         onChange={(evt) => handleCommentChange(evt, pet.pet_id)}
                                         placeholder="Add a comment"
                                         style={{
-                                            width: '600px',
+                                            width: '350px',
                                             height: '40px',
                                             padding: '10px',
                                             marginBottom: '10px',
@@ -226,7 +238,6 @@ export default function FriendForm({ username }) {
                                             border: 'none',
                                             cursor: 'pointer',
                                             marginLeft: '5px',
-                                            height: '35px',
                                         }}
                                     >
                                         Submit Comment
@@ -236,7 +247,7 @@ export default function FriendForm({ username }) {
                                         onClick={() => handleToggleComments(pet.pet_id)}
                                         type="button"
                                         style={{
-                                            padding: '10px 20px',
+                                            padding: '10px',
                                             backgroundColor: 'rgb(112, 73, 47)',
                                             borderRadius: '10px',
                                             color: 'white',
@@ -246,7 +257,7 @@ export default function FriendForm({ username }) {
                                             marginBottom: '10px'
                                         }}
                                     >
-                                        {showAllComments[pet.pet_id] ? 'Show Recent' : 'Show All'}
+                                        {showAllComments[pet.pet_id] ? 'Show Latest' : 'Show All'}
                                     </button>
 
                                     <div>{pet.petname}'s comments</div>
