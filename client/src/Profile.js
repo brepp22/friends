@@ -27,27 +27,34 @@ function Profile({ username }) {
   if (loading) {
     return <div>Loading liked pets...</div>; 
   }
-
   return (
-    <div className='profile'>
-      <h2>{username}'s Profile</h2>
-      <h3>Liked Pets</h3>
-      <div className='profile-like-pet'>
-        {likedPets.length > 0 ? (
-          <ul>
-            {likedPets.map(pet => (
-              <div key={pet.pet_id}>
-                <img src={pet.img} alt={pet.petname} />
-                <p>{pet.petname} - {pet.breed} - {pet.color}</p>
-              </div>
-            ))}
-          </ul>
-        ) : (
-          <p>No Liked Pets Yet...</p>
-        )}
+    <div className="profile-page">
+      <div className="profile-section">
+        <h2 className="profile-title">{username}'s Profile</h2>
+      </div>
+      <div className="liked-pets-section">
+        <h3 className="liked-pets-title">Liked Pets</h3>
+        <div className="liked-pets-container">
+          {likedPets.length > 0 ? (
+            <ul className="liked-pets-list">
+              {likedPets.map((pet) => (
+                <li key={pet.pet_id} className="liked-pet-card">
+                  <img src={pet.img} alt={pet.petname} className="pet-image" />
+                  <div className="pet-info">
+                    <p className="pet-name">{pet.petname}</p>
+                    <p className="pet-details">{pet.breed} - {pet.color}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="no-liked-pets">No Liked Pets Yet...</p>
+          )}
+        </div>
       </div>
     </div>
   );
-}
+  
+}  
 
 export default Profile;

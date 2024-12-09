@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(216, 231, 208);
 }
 
 html, body {
   height: 100%;
+  background-color: rgb(216, 231, 208);
 }
 
 .loginForm{
@@ -162,6 +162,7 @@ html, body {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
   transition: transform 0.3s ease; 
+  background-color: rgb(216, 231, 208);
 }
 
 .landing-img:hover {
@@ -179,32 +180,33 @@ html, body {
 
 .landing-info {
   text-align: center;
-  color: #70472F; /* Dark brown for text */
-  border: 8px solid #70472F; /* Matching border color with the image */
+  color: #70472F; 
+  border: 8px solid #70472F; 
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
-  width: 80%; /* Restrict the width of the info container */
-  max-width: 700px; /* Ensures content doesn't stretch too far */
-  margin: 0 auto; /* Center the container horizontally */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  width: 80%; 
+  max-width: 700px; 
+  margin: 0 auto; 
+  background-color: rgb(216, 231, 208);
 }
 
-/* Heading 1 styling */
+
 .landing-info h1 {
-  font-size: 3rem; /* Large, impactful font size */
+  font-size: 3rem; 
   font-weight: 700;
   margin-bottom: 20px;
-  text-transform: uppercase; /* Bold, uppercase letters */
+  text-transform: uppercase; 
   letter-spacing: 2px;
-  color: #3a2c1c; /* Darker brown for the main heading */
+  color: #3a2c1c; 
 }
 
-/* Heading 2 styling */
+
 .landing-info h2 {
-  font-size: 1.75rem; /* Slightly smaller subheading */
+  font-size: 1.75rem; 
   font-weight: 500;
   margin-top: 0;
-  color: #6a4e3c; /* Lighter brown for subheading */
+  color: #6a4e3c; 
 }
 
 h1{
@@ -241,18 +243,111 @@ h1{
   font-family: 'Trebuchet MS';
 }
 
-.profile-like-pet img{
-  width: 350px; 
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px; 
+/* General Page Styles */
+.profile-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Section */
+.profile-section {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #ece2da;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Liked Pets Section */
+.liked-pets-section {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.liked-pets-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Liked Pets Container */
+.liked-pets-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.profile-like-pet{
-  font-family: 'Roboto', sans-serif; 
+.liked-pets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
+/* Pet Card */
+.liked-pet-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.liked-pet-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
+/* Pet Image */
+.pet-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Pet Info */
+.pet-info {
+  padding: 10px;
+}
+
+.pet-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.pet-details {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* No Liked Pets Message */
+.no-liked-pets {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999;
+}

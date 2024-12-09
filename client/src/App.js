@@ -72,7 +72,6 @@ export default function App() {
           <Route path ='/pets' element ={
              isLoggedIn ? (
                 <div className = 'friendsList' >
-                <h3 className='welcome-message'>{welcomeMessage}!</h3>
                 <h1 style={{ textAlign: 'center'}}> </h1>
    
                 <FriendForm
@@ -90,6 +89,7 @@ export default function App() {
        <Route path ='/profile' element = {
          isLoggedIn ? (
         <div className = 'profile'>
+           <h3 className='welcome-message'>{welcomeMessage}!</h3>
           <Profile username={username} /> 
         </div>
          ) : (
