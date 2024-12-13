@@ -16,6 +16,9 @@ exports.seed = async function(knex) {
       bio: "Boulder is a free spirit with a lot of charm. Loves to cuddle and go on car rides."},
     {pet_id: 4, img: "https://images.unsplash.com/photo-1644749609200-42d395e95534?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       petname: "Stripe" , breed: "Chameleon" , weight: .5, color: "Green", 
-      bio: "Stripe is a natural born climber, who enjoys being surrounded by foilage."}
+      bio: "Stripe is a natural born climber, who enjoys being surrounded by foilage."},
+    {pet_id: 5, img: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      petname: "Ginger" , breed: "Tabby" , weight: 13, color: "Orange", 
+      bio: "Ginger is a bold and whimsical companion."},
   ]);
 };
