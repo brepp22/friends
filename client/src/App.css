@@ -96,7 +96,7 @@ html, body {
   width: 100%;
   display: flex;
   background-color: rgb(73, 40, 18);
-  border: solid white 1px;
+  
 }
 
 .nav a {

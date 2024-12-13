@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Friends ({details, onEdit}) {
-    const {id , username, interests} = details 
+    const { id } = details 
     const handleEdit = () => {
         onEdit(id)
     } 

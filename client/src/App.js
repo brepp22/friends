@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Link, Navigate, useNavigate} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom'
 import Friends from './Friends'
 import FriendForm from './FriendForm'
 import Login from './Login'
@@ -23,7 +23,6 @@ export default function App() {
   const [username, setUsername] = useState('')
 
   const updateForm = (inputName, inputValue) => {
-   
     setFormValues({
       ...formValues,
       [inputName]: inputValue,
