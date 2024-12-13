@@ -13,6 +13,9 @@ exports.seed = async function(knex) {
       bio: "Dash is a curious and cuddly companion. Loves to hang out with the family."},
     {pet_id: 3, img: "https://images.pexels.com/photos/160846/french-bulldog-summer-smile-joy-160846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       petname: "Boulder" , breed: "French Bulldog" , weight: 24, color: "Cream", 
-      bio: "Boulder is a free spirit with a lot of charm. Loves to cuddle and go on car rides."}
+      bio: "Boulder is a free spirit with a lot of charm. Loves to cuddle and go on car rides."},
+    {pet_id: 4, img: "https://images.unsplash.com/photo-1644749609200-42d395e95534?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      petname: "Stripe" , breed: "Chameleon" , weight: .5, color: "Green", 
+      bio: "Stripe is a natural born climber, who enjoys being surrounded by foilage."}
   ]);
 };
