@@ -9,9 +9,9 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('users').truncate()
   await knex('users').insert([
-    { username: 'Elleanor', password: bcrypt.hashSync('hotfudge22' , 8)},
-    { username: 'Kirby' , password: bcrypt.hashSync('hello1234', 8)},
-    { username: 'Mel' , password: bcrypt.hashSync ('kirby04', 8)},
-    { username: 'test' , password: bcrypt.hashSync('helloworld01')},
+    { email: 'ellepetshop@gmail.com', username: 'Elleanor', password: bcrypt.hashSync('hotfudge22' , 8)},
+    { email: 'k.money@hotmail.com', username: 'Kirby' , password: bcrypt.hashSync('hello1234', 8)},
+    { email: 'mel@prodigy.net', username: 'Mel' , password: bcrypt.hashSync ('kirby04', 8)},
+    { email: 'test@gmail.com', username: 'test' , password: bcrypt.hashSync('helloworld01', 8)},
   ]);
 };
