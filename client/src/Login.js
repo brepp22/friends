@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 const initialFormValues = {
   username: '',
   password: '',
+  email: '',
 };
 
 export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername }) {
@@ -24,11 +24,25 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
   const validateInputs = () => {
     const trimmedUsername = values.username.trim();
     const trimmedPassword = values.password.trim();
+    const trimmedEmail = values.email.trim();
 
     if (!trimmedUsername || !trimmedPassword) {
       setError('Both username and password are required.');
       return false;
     }
+
+    if (isRegistering) {
+      if (!trimmedEmail) {
+        setError('Email is required for registration.');
+        return false;
+      }
+
+      if (!/\S+@\S+\.\S+/.test(trimmedEmail)) {
+        setError('Please enter a valid email address.');
+        return false;
+      }
+    }
+
     return true;
   };
 
@@ -45,13 +59,19 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
 
     setLoading(true);
     try {
+      const requestBody = {
+        username: values.username.trim(),
+        password: values.password.trim(),
+      };
+
+      if (isRegistering) {
+        requestBody.email = values.email.trim();
+      }
+
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          username: values.username.trim(),
-          password: values.password.trim(),
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       const data = await response.json();
@@ -91,8 +111,8 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
     <div className="login-container">
       <h2>{isRegistering ? 'Register' : 'Login'}</h2>
       <form onSubmit={onSubmit} className="login-form">
-      {error && <p className="error-message">{error}</p>}
-      {message && <p className="message">{message}</p>}
+        {error && <p className="error-message">{error}</p>}
+        {message && <p className="message">{message}</p>}
         <div className="input-group">
           <label htmlFor="username">Username</label>
           <input
@@ -115,6 +135,19 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
             required
           />
         </div>
+        {isRegistering && (
+          <div className="input-group">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              value={values.email}
+              onChange={onChange}
+              required
+            />
+          </div>
+        )}
         <button type="submit" disabled={loading} className="submit-button">
           {loading ? 'Please wait...' : isRegistering ? 'Register' : 'Login'}
         </button>
@@ -125,3 +158,5 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
     </div>
   );
 }
+
+
