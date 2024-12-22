@@ -351,3 +351,22 @@ h1{
   font-size: 1.2rem;
   color: #999;
 }
+
+.login-p {
+  padding: 40px;
+  font-size: 15px;
+  color: rgb(109, 4, 4);
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+  text-align: center; 
+}
+
+.login-p span {
+  display: block; 
+  margin-bottom: 10px; 
+  color: rgb(109, 4, 4);
+  font-size: 15px;
+  padding: 0;
+}

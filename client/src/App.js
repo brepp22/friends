@@ -63,6 +63,10 @@ export default function App() {
             <div className = 'loginForm'>
                 <h1>  </h1>
               <Login setIsLoggedIn={setIsLoggedIn} setWelcomeMessage={setWelcomeMessage} setUsername={setUsername}/> 
+              <p className='login-p'>
+                <span>If you choose not to create an account you can login under the test account. </span> 
+                <span>To do so please use Username: test and Password: helloworld01.</span>
+                </p>
             </div>
             } />
             
