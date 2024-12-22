@@ -149,32 +149,18 @@ html, body {
 .landing {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
   background-color: #ece2da; 
   font-family: 'Roboto', sans-serif; 
 }
 
-.landing-img {
-  margin-bottom: 30px; 
-  border: 8px solid #70472F; 
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
-  transition: transform 0.3s ease; 
-  background-color: rgb(216, 231, 208);
-}
 
-.landing-img:hover {
-  transform: scale(1.05); 
-}
 
 
 .landing-img img {
-  width: 350px; 
   height: auto;
+  width: 100%;
   object-fit: contain;
-  border-radius: 12px; 
 }
 
 
