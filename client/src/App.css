@@ -147,67 +147,30 @@ html, body {
 }
 
 .landing {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   background-color: #ece2da; 
   font-family: 'Roboto', sans-serif; 
 }
 
+.function-landing {
+  display: flex; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px;
+  padding: 40px;
+  justify-content: space-between; 
+}
 
-
-
-.landing-img img {
-  height: auto;
+.landing-banner img {
+  height: 85%;
   width: 100%;
-  object-fit: contain;
 }
 
 
-.landing-info {
-  text-align: center;
-  color: #70472F; 
-  border: 8px solid #70472F; 
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-  width: 80%; 
-  max-width: 700px; 
-  margin: 0 auto; 
-  background-color: rgb(216, 231, 208);
-}
-
-
-.landing-info h1 {
-  font-size: 3rem; 
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-transform: uppercase; 
-  letter-spacing: 2px;
-  color: #3a2c1c; 
-}
-
-
-.landing-info h2 {
-  font-size: 1.75rem; 
-  font-weight: 500;
-  margin-top: 0;
-  color: #6a4e3c; 
-}
 
 h1{
   padding-top: 50px;
   padding-bottom: 25px;
   font-family:'Trebuchet MS';
   font-size: 50px;
-}
-
-.landing h2{
-  text-align: center;
-  padding-bottom: 30px;
-  margin: 20px 0;
-  font-family: 'Trebuchet MS';
-  font-size: 25px;
 }
 
 .register {
