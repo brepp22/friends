@@ -5,22 +5,20 @@ const jwt = require('jsonwebtoken');
 const User = require('../users/users-model');
 const { JWT_SECRET } = require('../config');
 
-// Register Route
 router.post('/register', validatePassword, async (req, res, next) => {
   const { username, password, email } = req.body;
 
-  // Validate presence of required fields
   if (!username || !password || !email) {
     return res.status(400).json({ message: 'Username, password, and email are required.' });
   }
 
-  // Validate email format
+  
   if (!/\S+@\S+\.\S+/.test(email)) {
     return res.status(400).json({ message: 'Invalid email format.' });
   }
 
   try {
-    // Check if username or email already exists
+ 
     const existingUser = await User.findBy({ username });
     if (existingUser.length > 0) {
       return res.status(400).json({ message: 'Username is already taken.' });
@@ -30,8 +28,6 @@ router.post('/register', validatePassword, async (req, res, next) => {
     if (existingEmail.length > 0) {
       return res.status(400).json({ message: 'Email is already registered.' });
     }
-
-    // Hash the password and add user to the database
     const hash = bcrypt.hashSync(password, 8);
     const newUser = await User.add({ username, password: hash, email });
 
@@ -44,7 +40,7 @@ router.post('/register', validatePassword, async (req, res, next) => {
   }
 });
 
-// Login Route
+
 router.post('/login', async (req, res, next) => {
   try {
     const { username, password } = req.body;
