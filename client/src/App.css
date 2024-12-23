@@ -149,8 +149,20 @@ html, body {
 .landing {
   background-color: #ece2da; 
   font-family: 'Roboto', sans-serif; 
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  
 }
 
+.image-box{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  padding: 40px;
+  
+}
 
 .landing-banner{
   width: 100%;
@@ -160,14 +172,6 @@ html, body {
 .landing-banner img{
   width: 100%;
   object-fit:cover;
-}
-
-.function-landing {
-  display: flex; 
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px;
-  padding: 40px;
-  justify-content: space-between; 
 }
 
 

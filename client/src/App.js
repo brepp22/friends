@@ -39,12 +39,12 @@ export default function App() {
   return (
     <BrowserRouter>
         <nav className='nav'>
-          <Link to ='/' className = 'home-nav'>🐱 Home</Link>
-           <Link to='/login' className = 'login-nav'>🐶 Login </Link> 
+          <Link to ='/' className = 'home-nav'>Home</Link>
+           <Link to='/login' className = 'login-nav'>Login </Link> 
            {isLoggedIn && (
            <Link to ="/profile" className = 'profile-nav'> Profile </Link>
            )}
-           <Link to="/pets" className = 'pets-nav'>🦴 Pets</Link>
+           <Link to="/pets" className = 'pets-nav'>Pets</Link>
            {isLoggedIn && (
             <button className = 'nav-logout' onClick = {handleLogout}>
               Logout
