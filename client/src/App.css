@@ -157,7 +157,7 @@ html, body {
 
 .image-box{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3a, 1fr);
   justify-items: center;
   align-items: center;
   padding: 40px;
@@ -328,4 +328,44 @@ h1{
   color: rgb(109, 4, 4);
   font-size: 15px;
   padding: 0;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%; 
+    padding: 15px;
+  }
+
+  .image-box {
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 10px;
+  }
+
+  .liked-pets-list {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .nav {
+    flex-direction: column;
+    text-align: center; 
+  }
+
+  .nav a {
+    margin: 10px 0; 
+    font-size: 16px; 
+  }
+
+  .nav-logout {
+    width: 100%; 
+  }
+
+  h1 {
+    font-size: 2rem; 
+    padding: 20px; 
+  }
+
+  .liked-pet-card {
+    padding: 10px; 
+    font-size: 0.9rem; 
+  }
 }
