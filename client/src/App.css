@@ -152,16 +152,15 @@ html, body {
   display: flex;
   align-content: center;
   flex-direction: column;
-  
 }
 
-.image-box{
+.image-box {
   display: grid;
-  grid-template-columns: repeat(3a, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   justify-items: center;
   align-items: center;
+  gap: 20px;
   padding: 40px;
-  
 }
 
 .landing-banner{
@@ -337,7 +336,7 @@ h1{
   }
 
   .image-box {
-    grid-template-columns: repeat(1, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
   }
 
