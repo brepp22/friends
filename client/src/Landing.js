@@ -9,16 +9,16 @@ export default function Landing() {
     return (
         <div className="landing">
 
-          <div className="landing-logo">
-            <img src="connectlogo.png" alt="French Bulldog" />
-            <p>
-  PetConnect is a fun, mock social media platform designed to celebrate our furry, feathery, and scaly friends! Here's what you can do: <br />
-  <strong>Discover Pets:</strong> Browse adorable pet profiles and learn more about them. <br />
-  <strong>Show Your Love:</strong> Like your favorite pets and see them featured in your profile. <br />
-  <strong>Join the Conversation:</strong> Leave comments to share your thoughts or interact with other pet lovers.
-</p>
-
-
+<div className="landing-logo">
+  <img src="connectlogo.png" alt="PetConnect Logo" className="logo" />
+  <div className="text-container">
+    <p>
+      PetConnect is a fun, mock social media platform designed to celebrate our furry, feathery, and scaly friends! Here's what you can do:
+    </p>
+    <p><strong>Discover Pets:</strong> Browse adorable pet profiles and learn more about them.</p>
+    <p><strong>Show Your Love:</strong> Like your favorite pets and see them featured in your profile.</p>
+    <p><strong>Join the Conversation:</strong> Leave comments to share your thoughts or interact with other pet lovers.</p>
+  </div>
           </div>
       
           <div className="function-landing">
