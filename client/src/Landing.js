@@ -35,7 +35,7 @@ export default function Landing() {
             </Link>
             </div>
         <div className = 'footer'>
-            <p></p>
+            <p>Check us out !</p>
         </div>
         </div>
         </div>
