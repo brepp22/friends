@@ -174,24 +174,24 @@ html, body {
 } */
 
 .landing-logo {
-  display: flex; /* Enables side-by-side layout */
-  align-items: center; /* Aligns the items at the top */
+  display: flex; 
+  align-items: center; 
+  background: linear-gradient(to right, blue 50%, red 50%);
 }
 
 .logo {
-  margin-right: 20px; /* Space between the logo and text */
+  margin-right: 20px; 
 }
 
 .text-container {
   font-family: monospace;
   font-size: 20px;
   font-weight: 300;
-  line-height: 1.6; /* Adds spacing for readability */
-  padding-right: 50px;
+  line-height: 1.6;
 }
 
 .text-container p {
-  margin: 0 0 10px; /* Adds space between paragraphs */
+  margin: 0 0 10px; 
 }
 
 h1{
