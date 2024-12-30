@@ -95,8 +95,7 @@ html, body {
   display: inline;
   width: 100%;
   display: flex;
-  background-color: rgb(73, 40, 18);
-  
+  background-color: rgb(73, 40, 18);  
 }
 
 .nav a {
@@ -176,7 +175,7 @@ html, body {
 .landing-logo {
   display: flex; 
   align-items: center; 
-  background: linear-gradient(to right, blue 50%, red 50%);
+  background: linear-gradient(to right, rgb(216, 231, 208) 22%, rgb(216, 231, 208) 22%, rgb(73, 40, 18) 22%, rgb(73, 40, 18) 70%);
 }
 
 .logo {
@@ -188,6 +187,7 @@ html, body {
   font-size: 20px;
   font-weight: 300;
   line-height: 1.6;
+  color:white;
 }
 
 .text-container p {
