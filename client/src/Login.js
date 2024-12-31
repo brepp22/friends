@@ -84,7 +84,10 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
           setValues(initialFormValues);
           setIsRegistering(false);
         } else {
+          const expirationTime = Date.now() + 3600000;
           localStorage.setItem('token', data.token);
+          localStorage.setItem('tokenExpiration', expirationTime);
+          localStorage.setItem('username', values.username.trim());
           setUsername(values.username.trim());
           setIsLoggedIn(true);
           setWelcomeMessage(data.message);

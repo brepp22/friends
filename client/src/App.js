@@ -1,14 +1,11 @@
 import React, { useState , useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom'
-import Friends from './Friends'
 import FriendForm from './FriendForm'
 import Login from './Login'
 import Landing from './Landing'
 import Profile from './Profile'
 import './App.css'
 
-let id = 0 
-const getId = () => ++id
 
 const initialValues = {
   username: '',
@@ -17,24 +14,54 @@ const initialValues = {
 
 export default function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [formValues, setFormValues] = useState(initialValues) 
-  const [welcomeMessage, setWelcomeMessage] = useState('')
-  const [username, setUsername] = useState('')
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [formValues, setFormValues] = useState(initialValues);
+  const [welcomeMessage, setWelcomeMessage] = useState('');
+  const [username, setUsername] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  const updateForm = (inputName, inputValue) => {
-    setFormValues({
-      ...formValues,
-      [inputName]: inputValue,
-    })
-  }
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const storedUsername = localStorage.getItem('username');
+    const tokenExpiration = localStorage.getItem('tokenExpiration');
+
+    setLoading(true);
+
+    if (token && storedUsername && tokenExpiration) {
+      const currentTime = new Date().getTime();
+      if (currentTime < tokenExpiration) {
+        setIsLoggedIn(true);
+        setUsername(storedUsername);
+
+      } else {
+        localStorage.removeItem('token');
+        localStorage.removeItem('tokenExpiration');
+        localStorage.removeItem('username');
+      }
+    }
+    setLoading(false);
+  }, []);
+
+  // const updateForm = (inputName, inputValue) => {
+  //   setFormValues({
+  //     ...formValues,
+  //     [inputName]: inputValue,
+  //   });
+  // };
 
   const handleLogout = () => {
-    setIsLoggedIn(false)
-    setWelcomeMessage('')
-    setUsername('')
-    localStorage.removeItem('token')
-  } 
+    localStorage.removeItem('token');
+    localStorage.removeItem('tokenExpiration');
+    localStorage.removeItem('username');
+    setIsLoggedIn(false);
+    setWelcomeMessage('');
+    setUsername('');
+  };
+
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
+
 
   return (
     <BrowserRouter>
@@ -55,13 +82,11 @@ export default function App() {
 
         <Routes>
           <Route path = '/' element ={
-            <div>
             <Landing />
-            </div>
            }/>
           <Route path = '/login' element = {
             <div className = 'loginForm'>
-                <h1>  </h1>
+                <h1> </h1>
               <Login setIsLoggedIn={setIsLoggedIn} setWelcomeMessage={setWelcomeMessage} setUsername={setUsername}/> 
               <p className='login-p'>
                 <span>If you choose not to create an account you can login under the test account. </span> 
@@ -75,13 +100,12 @@ export default function App() {
           <Route path ='/pets' element ={
              isLoggedIn ? (
                 <div className = 'friendsList' >
-                <h1 style={{ textAlign: 'center'}}> </h1>
-   
+                <h1> </h1>
                 <FriendForm
                 username={username}
                 values={formValues}
-               
                 />
+                
            </div>
              ) : (
               <Navigate to ='/login' />
@@ -92,7 +116,7 @@ export default function App() {
        <Route path ='/profile' element = {
          isLoggedIn ? (
         <div className = 'profile'>
-           <h3 className='welcome-message'>{welcomeMessage}!</h3>
+           <h3 className='welcome-message'>{welcomeMessage}</h3>
           <Profile username={username} /> 
         </div>
          ) : (
@@ -106,6 +130,4 @@ export default function App() {
     </BrowserRouter>
   )
 }
-
-
 
