@@ -187,10 +187,15 @@ html, body {
 .footer{
   background-color: rgb(73, 40, 18);
   color:white;
-  height:100vh;
+  height:20.3vh;
   width: auto; 
   text-align: center;
   padding: 20px; 
+  font-style: italic;
+}
+
+.footer p{
+  padding: 10px;
 }
 
 h1{

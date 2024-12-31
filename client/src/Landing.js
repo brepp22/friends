@@ -35,7 +35,10 @@ export default function Landing() {
             </Link>
             </div>
         <div className = 'footer'>
-            <p>Check us out !</p>
+            <p> Disclaimer: PetConnect is a mock platform created for educational and learning purposes only. 
+                The pets and profiles featured are fictional and not representative of real individuals or animals.
+                <p></p>
+                Ready to join the paw-ty? Sign up today and let’s celebrate pets together!</p>
         </div>
         </div>
         </div>
