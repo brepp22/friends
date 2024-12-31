@@ -96,6 +96,8 @@ html, body {
   width: 100%;
   display: flex;
   background-color: rgb(73, 40, 18);  
+  height: 75px;
+  padding-left: 20px;
 }
 
 .nav a {
@@ -155,7 +157,7 @@ html, body {
 
 .image-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); 
   justify-items: center;
   align-items: center;
   gap: 20px;
@@ -184,10 +186,14 @@ html, body {
   margin: 0 0 10px; 
 }
 
+.function-landing img{
+  height: 150px;
+}
+
 .footer{
   background-color: rgb(73, 40, 18);
   color:white;
-  height:20.3vh;
+  height:25vh;
   width: auto; 
   text-align: center;
   padding: 20px; 
