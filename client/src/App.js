@@ -42,12 +42,6 @@ export default function App() {
     setLoading(false);
   }, []);
 
-  // const updateForm = (inputName, inputValue) => {
-  //   setFormValues({
-  //     ...formValues,
-  //     [inputName]: inputValue,
-  //   });
-  // };
 
   const handleLogout = () => {
     localStorage.removeItem('token');

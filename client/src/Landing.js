@@ -27,7 +27,7 @@ export default function Landing() {
             <Link to="/login">
                 <img src="Login.png" alt="Login" />
             </Link>
-            <Link to="/login">
+            <Link to="/login" >
                 <img src="Register.png" alt="Register" />
             </Link>
             <Link to="/login">
