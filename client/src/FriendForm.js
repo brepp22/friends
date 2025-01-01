@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function FriendForm({ username }) {
     const [pets, setPets] = useState([]);
-    const [error, setError] = useState(null);
+    const [setError] = useState(null);
     const [commentText, setCommentText] = useState('');
     const [comments, setComments] = useState({});
     const [showAllComments, setShowAllComments] = useState({});

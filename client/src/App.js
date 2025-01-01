@@ -15,7 +15,7 @@ const initialValues = {
 export default function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [formValues, setFormValues] = useState(initialValues);
+  const [formValues] = useState(initialValues);
   const [welcomeMessage, setWelcomeMessage] = useState('');
   const [username, setUsername] = useState('');
   const [loading, setLoading] = useState(true);
