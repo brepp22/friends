@@ -1,0 +1,21 @@
+{
+	"siteId": "c0fc0591-1bd4-45df-b324-d63b069073aa",
+	"geolocation": {
+		"data": {
+			"city": "San Luis Obispo",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "CA",
+				"name": "California"
+			},
+			"timezone": "America/Los_Angeles",
+			"latitude": 35.2865,
+			"longitude": -120.6822,
+			"postalCode": "93405"
+		},
+		"timestamp": 1735617172575
+	}
+}
