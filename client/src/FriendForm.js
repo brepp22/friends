@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 export default function FriendForm({ username }) {
     const [pets, setPets] = useState([]);
-    const [setError] = useState(null);
+    const [error, setError] = useState(null);
     const [commentText, setCommentText] = useState('');
     const [comments, setComments] = useState({});
     const [showAllComments, setShowAllComments] = useState({});
     const [likedPets, setLikedPets] = useState({});
 
+    error = 'error' 
 
     useEffect(() => {
         fetch('http://localhost:9000/api/pets', {
