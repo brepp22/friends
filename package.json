@@ -10,5 +10,9 @@
     "devDependencies": {
         "concurrently": "^9.1.2",
         "i": "^0.3.7"
+    },
+    "dependencies": {
+        "git": "^0.1.5",
+        "ignore": "^7.0.0"
     }
 }
