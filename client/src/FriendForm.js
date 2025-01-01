@@ -8,8 +8,7 @@ export default function FriendForm({ username }) {
     const [showAllComments, setShowAllComments] = useState({});
     const [likedPets, setLikedPets] = useState({});
 
-    error = 'error' 
-
+    
     useEffect(() => {
         fetch('http://localhost:9000/api/pets', {
             method: 'GET',
@@ -59,7 +58,7 @@ export default function FriendForm({ username }) {
         .catch((error) => {
             setError(error);
         });
-    }, []);
+    }, [setError]);
 
     useEffect(() => {
         if (username) {
