@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 export default function FriendForm({ username }) {
     const [pets, setPets] = useState([]);
-    const [error, setError] = useState(null);
     const [commentText, setCommentText] = useState('');
     const [comments, setComments] = useState({});
     const [showAllComments, setShowAllComments] = useState({});
@@ -56,9 +55,9 @@ export default function FriendForm({ username }) {
                 });
         })
         .catch((error) => {
-            setError(error);
+            
         });
-    }, [setError]);
+    }, []);
 
     useEffect(() => {
         if (username) {
@@ -159,6 +158,7 @@ export default function FriendForm({ username }) {
     
 
     return (
+        
         <div className='pet-container'>
             <ul>
                 {pets.map(pet => (
