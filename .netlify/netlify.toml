@@ -1,6 +1,7 @@
 [build]
   command = "npm run build --prefix client"  
-  publish = "client/build"                  
+  publish = "client/build" 
+  functions = "functions"                
 
 [build.environment]
   NODE_VERSION = "20.15.1"  
