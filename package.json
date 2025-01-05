@@ -13,6 +13,7 @@
         "i": "^0.3.7"
     },
     "dependencies": {
+        "detect-port-alt": "^1.1.6",
         "git": "^0.1.5",
         "gitignore": "^0.7.0",
         "ignore": "^7.0.0"
