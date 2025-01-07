@@ -1,3 +1,28 @@
-# Local Netlify folder
-.netlify
-.vercel
+# Ignore Node modules
+node_modules/
+
+# Ignore build artifacts
+build/
+dist/
+
+# Ignore Netlify and Vercel-specific files
+.netlify/
+.vercel/
+
+# Ignore environment variable files
+.env
+
+# Ignore SQLite databases (if you don’t want to commit them)
+data/*.db3
+
+# Ignore logs
+*.log
+
+# Ignore package-lock or yarn.lock (optional, if you don't want to track them)
+package-lock.json
+yarn.lock
+
+# Ignore other temporary files
+*.tmp
+
+

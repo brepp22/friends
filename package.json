@@ -5,7 +5,8 @@
     "scripts": {
         "client": "npm start --prefix client",
         "server": "npm run server --prefix server",
-        "dev": "concurrently \"npm run client\" \"npm run server\""
+        "dev": "concurrently \"npm run client\" \"npm run server\"",
+        "start": "node server/server.js"
     },
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
