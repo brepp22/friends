@@ -4,9 +4,9 @@
     "private": true,
     "scripts": {
         "client": "npm start --prefix client",
-        "server": "npm run server --prefix server",
+        "server": "cd server && npm start",
         "dev": "concurrently \"npm run client\" \"npm run server\"",
-        "start": "cd server && node server.js"
+        "start": "node server/server.js"
     },
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
