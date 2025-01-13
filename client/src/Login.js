@@ -54,8 +54,8 @@ export default function Login({ setIsLoggedIn, setWelcomeMessage, setUsername })
     if (!validateInputs()) return;
 
     const endpoint = isRegistering
-      ? 'https://backend-petconnect-6115f2de1b47.herokuapp.com/api/register'
-      : 'https://backend-petconnect-6115f2de1b47.herokuapp.com/api/login';
+      ? 'http://localhost:9000/api/register'
+      : 'http://localhost:9000/api/login';
 
     setLoading(true);
     try {
