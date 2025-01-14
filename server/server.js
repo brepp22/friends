@@ -58,6 +58,10 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+app.get('/api/test' , (req, res) => {
+    res.status(200).send('Test route is working')
+})
+
 app.get('/', (req, res) => {
     res.send('Server is up and running');
   });  
