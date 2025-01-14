@@ -1,19 +1,21 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
-app.use(express.json())
-const userRouter = require('./api/users/user-router')
-const petRouter = require('./api/pets/pets-router')
+// require('dotenv').config();
 
-app.use(cors())
+// const express = require('express')
+// const app = express()
+// const cors = require('cors')
+// app.use(express.json())
+// const userRouter = require('./api/users/user-router')
+// const petRouter = require('./api/pets/pets-router')
 
-app.use('/api' , userRouter)
-app.use('/api', petRouter)
+// app.use(cors())
+
+// app.use('/api' , userRouter)
+// app.use('/api', petRouter)
 
 
-app.listen(process.env.PORT || 9000 , () => {
-    console.log("server started on port 9000")
-})
+// app.listen(process.env.PORT || 9000 , () => {
+//     console.log(`server started on port ${process.env.PORT || 9000}`)
+// })
 
 
 
@@ -35,3 +37,32 @@ app.listen(process.env.PORT || 9000 , () => {
 // module.exports = app;
 
 // module.exports.handler = serverless(app);
+
+
+require('dotenv').config();
+
+const express = require('express');
+const app = express();
+const cors = require('cors');
+app.use(express.json());
+const userRouter = require('./api/users/user-router');
+const petRouter = require('./api/pets/pets-router');
+
+app.use(cors());
+
+// Routes for users and pets
+app.use('/api', userRouter);
+app.use('/api', petRouter);
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+app.get('/', (req, res) => {
+    res.send('Server is up and running');
+  });  
+
+
+app.listen(process.env.PORT || 9000, () => {
+  console.log(`server started on port ${process.env.PORT || 9000}`);
+});

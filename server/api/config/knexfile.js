@@ -132,7 +132,7 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      connectionString: process.env.HEROKU_POSTGRESQL_JADE_URL, // Use Heroku's database URL
+      connectionString: process.env.DATABASE_URL, // Use Heroku's database URL
       ssl: { rejectUnauthorized: false }, // Required for Heroku PostgreSQL
     },
     ...sharedConfig,
