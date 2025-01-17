@@ -61,7 +61,7 @@ export default function FriendForm({ username }) {
 
     useEffect(() => {
         if (username) {
-            fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/users/${username}/liked-pets`, {
+            fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/api/users/${username}/liked-pets`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
