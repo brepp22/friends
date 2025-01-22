@@ -167,11 +167,11 @@ html, body {
 .landing-logo {
   display: flex; 
   align-items: center; 
-  background: linear-gradient(to right, rgb(216, 231, 208) 22%, rgb(216, 231, 208) 22%, rgb(73, 40, 18) 22%, rgb(73, 40, 18) 70%);
+  background: linear-gradient(to right, rgb(216, 231, 208) 30%, rgb(216, 231, 208) 30%, rgb(73, 40, 18) 30%, rgb(73, 40, 18) 70%);
 }
 
 .logo {
-  margin-right: 20px; 
+  margin-right: 155px; 
 }
 
 .text-container {
@@ -180,6 +180,7 @@ html, body {
   font-weight: 300;
   line-height: 1.6;
   color:white;
+  margin-right: 145px;
 }
 
 .text-container p {
@@ -395,5 +396,56 @@ h1{
   .liked-pet-card {
     padding: 10px; 
     font-size: 0.9rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 100%; 
+    padding: 10px;
+  }
+
+  .image-box {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 5px;
+  }
+
+  .liked-pets-list {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .nav {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .nav a {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  .nav-logout {
+    font-size: 14px;
+    padding: 8px 10px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+
+  .liked-pet-card {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  .pet-image {
+    height: 100px; 
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    padding: 10px;
   }
 }
