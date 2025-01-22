@@ -363,24 +363,35 @@ h1{
 @media (max-width: 768px) {
   .nav {
     display: flex;
-    flex-direction: column; /* Ensure items stack vertically */
-    align-items: center; /* Center items horizontally */
-    text-align: center; /* Align text centrally */
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
     padding: 20px;
     height: 100%;
   }
 
-  .nav a {
-    font-size: 18px;
-    padding: 10px 0;
-  }
+  .nav {
+    display: flex; /* Apply flexbox to the parent container */
+    flex-direction: column; /* Ensure the children stack vertically */
+    align-items: center; /* Center children horizontally */
+}
 
-  .nav-logout {
-    width: 100%;
-    font-size: 16px;
+.nav a {
+    font-size: 18px;
+    padding: 5px;
+    width: 100%; /* Ensure each link takes full width of its container */
     margin: 10px 0;
-    align-items: center;
-  }
+}
+
+.nav-logout {
+    width: 100%; /* Make sure the logout button spans the width of its container */
+    font-size: 18px;
+    margin: 10px 0;
+    display: flex; /* Set display flex on the logout button for centering */
+    justify-content: center; /* Align the button's content in the center */
+    align-items: center; /* Center content vertically if necessary */
+}
+
   .landing-logo {
     display: flex; 
     flex-direction: column;
@@ -408,5 +419,13 @@ h1{
     padding: 5px; 
     padding-right: 25px;
   }
+
+  .function-landing{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+ 
   
 }
