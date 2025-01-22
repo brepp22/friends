@@ -185,7 +185,7 @@ export default function FriendForm({ username }) {
                         e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
                       }}
                     >
-                        <img src={pet.img} alt={pet.petname} style={{ 
+                        <img className= 'petimg' src={pet.img} alt={pet.petname} style={{ 
                              width: '200px', 
                              height: '150px',  
                              marginRight: '20px', 
@@ -200,18 +200,19 @@ export default function FriendForm({ username }) {
                             <p>Breed: {pet.breed}</p>
                             <p>Color: {pet.color}</p>
                             <p>Weight: {pet.weight} Pounds</p>
-                            <p>Bio: {pet.bio}</p>
+                            <p className='pet-bio'>Bio: {pet.bio}</p>
 
                             <div style={{ marginTop: '20px' }}>
                                 <h4>Comments</h4>
 
                                 <div>
                                     <input
+                                        className='comment-section'
                                         value={commentText[pet.pet_id] || ''}
                                         onChange={(evt) => handleCommentChange(evt, pet.pet_id)}
                                         placeholder="Add a comment"
                                         style={{
-                                            width: '300px',
+                                            width: '77%',
                                             height: '40px',
                                             padding: '10px',
                                             marginBottom: '10px',

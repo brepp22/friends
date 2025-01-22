@@ -170,9 +170,9 @@ html, body {
   background: linear-gradient(to right, rgb(216, 231, 208) 30%, rgb(216, 231, 208) 30%, rgb(73, 40, 18) 30%, rgb(73, 40, 18) 70%);
 }
 
-.logo {
+/* .logo {
   margin-right: 155px; 
-}
+} */
 
 .text-container {
   font-family: monospace;
@@ -180,11 +180,12 @@ html, body {
   font-weight: 300;
   line-height: 1.6;
   color:white;
-  margin-right: 145px;
+  /* margin-right: 145px; */
 }
 
 .text-container p {
-  margin: 0 0 10px; 
+  margin: 10px 10px 10px; 
+  padding: 10px 10px 10px;
 }
 
 .function-landing img{
@@ -360,92 +361,52 @@ h1{
 }
 
 @media (max-width: 768px) {
-  .login-container {
-    width: 90%; 
-    padding: 15px;
-  }
-
-  .image-box {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-  }
-
-  .liked-pets-list {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
-
   .nav {
-    flex-direction: column;
-    text-align: center; 
+    display: flex;
+    flex-direction: column; /* Ensure items stack vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Align text centrally */
+    padding: 20px;
+    height: 100%;
   }
 
   .nav a {
-    margin: 10px 0; 
-    font-size: 16px; 
-  }
-
-  .nav-logout {
-    width: 100%; 
-  }
-
-  h1 {
-    font-size: 2rem; 
-    padding: 20px; 
-  }
-
-  .liked-pet-card {
-    padding: 10px; 
-    font-size: 0.9rem; 
-  }
-}
-
-@media (max-width: 480px) {
-  .login-container {
-    width: 100%; 
-    padding: 10px;
-  }
-
-  .image-box {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 5px;
-  }
-
-  .liked-pets-list {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-
-  .nav {
-    flex-direction: column;
+    font-size: 18px;
     padding: 10px 0;
   }
 
-  .nav a {
-    font-size: 14px;
-    margin: 5px 0;
-  }
-
   .nav-logout {
-    font-size: 14px;
-    padding: 8px 10px;
     width: 100%;
+    font-size: 16px;
+    margin: 10px 0;
+    align-items: center;
+  }
+  .landing-logo {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    background:  rgb(216, 231, 208);
+  }
+  .text-container {
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.6;
+    color:black;
+  }
+  .pet-container {
+      flex-direction: column; 
+      padding-left: 25px;
   }
 
-  h1 {
-    font-size: 1.5rem;
-    padding: 15px;
+  .pet-bio {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    max-width: 75%; 
+    word-wrap: break-word; 
+    padding: 5px; 
+    padding-right: 25px;
   }
-
-  .liked-pet-card {
-    padding: 8px;
-    font-size: 0.8rem;
-  }
-
-  .pet-image {
-    height: 100px; 
-  }
-
-  .footer {
-    font-size: 0.8rem;
-    padding: 10px;
-  }
+  
 }
