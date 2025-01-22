@@ -408,6 +408,7 @@ h1{
   .pet-container {
       flex-direction: column; 
       padding-left: 25px;
+      font-size: 10px;
   }
 
   .pet-bio {
@@ -418,6 +419,7 @@ h1{
     word-wrap: break-word; 
     padding: 5px; 
     padding-right: 25px;
+    font-size: 10px;
   }
 
   .function-landing{

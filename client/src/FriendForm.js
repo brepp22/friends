@@ -243,7 +243,7 @@ export default function FriendForm({ username }) {
                                     >
                                         Submit Comment
                                     </button>
-
+                            
                                     <button
                                         onClick={() => handleToggleComments(pet.pet_id)}
                                         type="button"
