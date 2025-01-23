@@ -405,22 +405,36 @@ h1{
     line-height: 1.6;
     color:black;
   }
-  .pet-container {
+  /* .pet-container {
       flex-direction: column; 
       padding-left: 25px;
       font-size: 10px;
+  } */
+
+  .pet-container {
+    flex-direction: column; /* Stack the content vertically */
+    align-items: center; /* Center content for a clean look */
+    text-align: center;
+    padding-left: 25px;
   }
 
-  .pet-bio {
+  .pet-image {
+    margin-bottom: 15px; /* Add space between the image and info */
+  }
+
+  .pet-info {
+    margin-left: 0; /* Reset margin to align content properly */
+  }
+
+  /* .pet-bio {
     display: flex;
     flex-wrap: wrap; 
     justify-content: center; 
     max-width: 75%; 
     word-wrap: break-word; 
-    padding: 5px; 
     padding-right: 25px;
     font-size: 10px;
-  }
+  } */
 
   .function-landing{
     display:flex;
