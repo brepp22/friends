@@ -360,88 +360,74 @@ h1{
   padding: 0;
 }
 
+.petimg {
+  width: 200px; /* Set image width */
+  height: 150px; /* Set image height */
+  margin-right: 20px; /* Space to the right of the image */
+  border-radius: 8px; /* Rounded corners */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
 @media (max-width: 768px) {
   .nav {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding: 20px;
-    height: 100%;
+    height: auto;
   }
 
-  .nav {
-    display: flex; /* Apply flexbox to the parent container */
-    flex-direction: column; /* Ensure the children stack vertically */
-    align-items: center; /* Center children horizontally */
-}
-
-.nav a {
+  .nav a {
     font-size: 18px;
     padding: 5px;
-    width: 100%; /* Ensure each link takes full width of its container */
+    width: 100%;
     margin: 10px 0;
-}
+  }
 
-.nav-logout {
-    width: 100%; /* Make sure the logout button spans the width of its container */
+  .nav-logout {
+    width: 100%;
     font-size: 18px;
     margin: 10px 0;
-    display: flex; /* Set display flex on the logout button for centering */
-    justify-content: center; /* Align the button's content in the center */
-    align-items: center; /* Center content vertically if necessary */
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .landing-logo {
-    display: flex; 
     flex-direction: column;
-    align-items: center; 
-    background:  rgb(216, 231, 208);
+    align-items: center;
+    background: rgb(216, 231, 208);
   }
+
   .text-container {
     font-family: monospace;
     font-size: 20px;
     font-weight: 300;
     line-height: 1.6;
-    color:black;
+    color: black;
   }
-  /* .pet-container {
-      flex-direction: column; 
-      padding-left: 25px;
-      font-size: 10px;
-  } */
+
+  .petimg {
+    width: 150px;
+    height: 100px;
+  }
 
   .pet-container {
-    flex-direction: column; /* Stack the content vertically */
-    align-items: center; /* Center content for a clean look */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding-left: 25px;
-  }
-
-  .pet-image {
-    margin-bottom: 15px; /* Add space between the image and info */
+    padding: 0 25px;
+    width: 100%;
   }
 
   .pet-info {
-    margin-left: 0; /* Reset margin to align content properly */
+    margin-left: 0;
   }
 
-  /* .pet-bio {
+  .function-landing {
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    max-width: 75%; 
-    word-wrap: break-word; 
-    padding-right: 25px;
-    font-size: 10px;
-  } */
-
-  .function-landing{
-    display:flex;
     flex-direction: column;
     align-items: center;
   }
-
- 
-  
 }

@@ -185,14 +185,7 @@ export default function FriendForm({ username }) {
                         e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
                       }}
                     >
-                        <img className= 'petimg' src={pet.img} alt={pet.petname} style={{ 
-                             width: '200px', 
-                             height: '150px',  
-                             marginRight: '20px', 
-                             borderRadius: '8px', 
-                             objectFit: 'cover', 
-                             boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', 
-                        }} />
+                        <img className= 'petimg' src={pet.img} alt={pet.petname} />
                         <div style={{ flex: 1 , padding: '12px' , borderRadius: '8px'}}>
                         <h3 style={{ margin: '0 0 10px', fontSize: '1.5rem', color: '#70472F' }}>
                             {pet.petname}
