@@ -159,23 +159,10 @@ export default function FriendForm({ username }) {
 
     return (
         
-        <div className='pet-container'>
-            <ul>
+        <div className ='friendform-container'>
+            <ul >
                 {pets.map(pet => (
-                    <ul key={pet.pet_id} style={{ 
-                        border: '1px solid rgba(112, 73, 47, 0.5)', 
-                        borderRadius: '12px', 
-                        padding: '20px', 
-                        maxWidth: '90%', 
-                        boxSizing: 'border-box', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        marginBottom: '20px', 
-                        backgroundColor: '#ece2da', 
-                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
-                        transition: 'transform 0.2s, box-shadow 0.2s',
-                        cursor: 'pointer',
-                    }}
+                    <ul key={pet.pet_id} className='pet-container'
                     onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'scale(1.02)';
                         e.currentTarget.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.15)';

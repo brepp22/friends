@@ -170,17 +170,12 @@ html, body {
   background: linear-gradient(to right, rgb(216, 231, 208) 30%, rgb(216, 231, 208) 30%, rgb(73, 40, 18) 30%, rgb(73, 40, 18) 70%);
 }
 
-/* .logo {
-  margin-right: 155px; 
-} */
-
 .text-container {
   font-family: monospace;
   font-size: 20px;
   font-weight: 300;
   line-height: 1.6;
   color:white;
-  /* margin-right: 145px; */
 }
 
 .text-container p {
@@ -226,12 +221,27 @@ h1{
   text-align: left;
 }
 
+.friendform-container{
+  padding-bottom: 20px;
+}
+
 .pet-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-family: 'Trebuchet MS';
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 90%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin: 20px auto; 
+  background-color: #ece2da;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
 }
-
 
 .profile-page {
   max-width: 900px;
@@ -313,10 +323,12 @@ h1{
 
 .pet-image {
   width: 100%;
-  height: 150px; 
   object-fit: cover; 
   border-radius: 8px;
   margin-bottom: 10px;
+  min-height: 200px;
+  max-height: 200px;
+
 }
 
 .pet-info {
@@ -371,63 +383,70 @@ h1{
 
 @media (max-width: 768px) {
   .nav {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
     padding: 20px;
-    height: auto;
+    height: 100%;
   }
 
-  .nav a {
+  .nav {
+    display: flex; /* Apply flexbox to the parent container */
+    flex-direction: column; /* Ensure the children stack vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+.nav a {
     font-size: 18px;
     padding: 5px;
-    width: 100%;
+    width: 100%; /* Ensure each link takes full width of its container */
     margin: 10px 0;
-  }
+}
 
-  .nav-logout {
-    width: 100%;
+.nav-logout {
+    width: 100%; /* Make sure the logout button spans the width of its container */
     font-size: 18px;
     margin: 10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    display: flex; /* Set display flex on the logout button for centering */
+    justify-content: center; /* Align the button's content in the center */
+    align-items: center; /* Center content vertically if necessary */
+}
 
   .landing-logo {
+    display: flex; 
     flex-direction: column;
-    align-items: center;
-    background: rgb(216, 231, 208);
+    align-items: center; 
+    background:  rgb(216, 231, 208);
   }
-
   .text-container {
     font-family: monospace;
     font-size: 20px;
     font-weight: 300;
     line-height: 1.6;
-    color: black;
-  }
-
-  .petimg {
-    width: 150px;
-    height: 100px;
+    color:black;
   }
 
   .pet-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Stack the content vertically */
+    align-items: center; /* Center content for a clean look */
     text-align: center;
-    padding: 0 25px;
+    padding-left: 25px;
+    padding-right: 25px;
     width: 100%;
   }
 
   .pet-info {
-    margin-left: 0;
+    margin-left: 0; /* Reset margin to align content properly */
   }
 
-  .function-landing {
-    display: flex;
+
+  .function-landing{
+    display:flex;
     flex-direction: column;
     align-items: center;
   }
+
+ 
+  
 }
