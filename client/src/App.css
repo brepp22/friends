@@ -452,17 +452,19 @@ h1{
   }
 
   .liked-pet-card {
-    max-width: 200px;
-    max-width: 200px;
-    min-width: 200px;
-    max-width: 200px;
+    max-width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    flex: 1 1 calc(33.33% - 10px); 
+    max-width: calc(33.33% - 10px); 
   }
 
   .liked-pets-list {
-    display: grid;
-    align-self: center;
-    grid-template-columns: repeat( minmax(200px, 1fr)); 
-    height: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    width: 100%; /* Or set a specific width for the container */
+    justify-content: space-evenly;
   }
  
   
