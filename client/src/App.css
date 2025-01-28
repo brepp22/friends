@@ -373,12 +373,12 @@ h1{
 }
 
 .petimg {
-  width: 200px; /* Set image width */
-  height: 150px; /* Set image height */
-  margin-right: 20px; /* Space to the right of the image */
-  border-radius: 8px; /* Rounded corners */
-  object-fit: cover; /* Ensure the image covers the area without distortion */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  width: 200px; 
+  height: 150px; 
+  margin-right: 20px; 
+  border-radius: 8px; 
+  object-fit: cover; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -394,9 +394,9 @@ h1{
   }
 
   .nav {
-    display: flex; /* Apply flexbox to the parent container */
-    flex-direction: column; /* Ensure the children stack vertically */
-    align-items: center; /* Center children horizontally */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .nav a {
@@ -407,12 +407,12 @@ h1{
 }
 
 .nav-logout {
-    width: 100%; /* Make sure the logout button spans the width of its container */
+    width: 100%; 
     font-size: 18px;
     margin: 10px 0;
-    display: flex; /* Set display flex on the logout button for centering */
-    justify-content: center; /* Align the button's content in the center */
-    align-items: center; /* Center content vertically if necessary */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
   .landing-logo {
@@ -430,8 +430,8 @@ h1{
   }
 
   .pet-container {
-    flex-direction: column; /* Stack the content vertically */
-    align-items: center; /* Center content for a clean look */
+    flex-direction: column; 
+    align-items: center; 
     text-align: center;
     padding-left: 25px;
     padding-right: 25px;
@@ -439,7 +439,7 @@ h1{
   }
 
   .pet-info {
-    margin-left: 0; /* Reset margin to align content properly */
+    margin-left: 0;
   }
   .function-landing{
     display:flex;
@@ -452,20 +452,40 @@ h1{
   }
 
   .liked-pet-card {
-    max-width: 300px;
-    max-width: 300px;
-    min-width: 300px;
-    max-width: 300px;
+    max-width: 200px;
+    max-width: 200px;
+    min-width: 200px;
+    max-width: 200px;
     flex: 1 1 calc(33.33% - 10px); 
     max-width: calc(33.33% - 10px); 
   }
 
   .liked-pets-list {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap onto the next line */
-    width: 100%; /* Or set a specific width for the container */
+    flex-wrap: wrap; 
+    width: 100%; 
     justify-content: space-evenly;
   }
+
+  ::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px; 
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0; 
+    border-radius: 6px; 
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(216, 231, 208) ;
+    border-radius: 6px; 
+  }
+  
+
+  
  
   
 }
