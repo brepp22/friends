@@ -468,3 +468,30 @@ h1{
   }
 
 }
+
+
+@media (min-width: 1800px) {
+  .landing-logo {
+    background: linear-gradient(
+      to right,
+      rgb(216, 231, 208) 25%, 
+      rgb(216, 231, 208) 25%, 
+      rgb(73, 40, 18) 25%, 
+      rgb(73, 40, 18) 75%
+    );
+    background-size: cover; 
+  }
+}
+
+@media (min-width: 769px) and (max-width:1400px) {
+  .landing-logo {
+    background: linear-gradient(
+      to right,
+      rgb(216, 231, 208) 50%, 
+      rgb(216, 231, 208) 50%, 
+      rgb(73, 40, 18) 50%, 
+      rgb(73, 40, 18) 50%
+    );
+    background-size: cover; 
+  }
+}
