@@ -64,7 +64,7 @@ exports.seed = async function (knex) {
       img: "https://images.unsplash.com/photo-1644749609200-42d395e95534?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       petname: "Stripe",
       breed: "Chameleon",
-      weight: 1,
+      weight: 2,
       color: "Green",
       bio: "Stripe is a natural born climber, who enjoys being surrounded by foilage.",
     },
@@ -77,5 +77,24 @@ exports.seed = async function (knex) {
       color: "Orange",
       bio: "Ginger is a bold and whimsical companion.",
     },
+    {
+      pet_id: 6,
+      img: "https://images.unsplash.com/photo-1458410489211-ba19aa2f2902?q=80&w=1492&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      petname: "Coco",
+      breed: "Cockatiel",
+      weight: 2,
+      color: "Grey",
+      bio: "Coco loves to whistle while committing playful antics.",
+    },
+    {
+      pet_id: 7,
+      img: "https://images.unsplash.com/photo-1535241749838-299277b6305f?q=80&w=1492&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      petname: "Radar",
+      breed: "Miniature Lop",
+      weight: 7,
+      color: "Beige",
+      bio: "Radar is a compact ball of joy, who loves to lounge around the backyard.",
+    },
+    
   ]);
 };
