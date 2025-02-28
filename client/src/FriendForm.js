@@ -18,12 +18,16 @@ export default function FriendForm({ username }) {
         .then((res) => res.json())
         .then((data) => {
             setPets(data);
+
+            const storedLikedPets = JSON.parse(localStorage.getItem('likedPets')) || {};
     
-            const initialLikedPets = data.reduce((acc, pet) => {
-                acc[pet.pet_id] = pet.like; 
-                return acc;
-            }, {});
-            setLikedPets(initialLikedPets);
+            // const initialLikedPets = data.reduce((acc, pet) => {
+            //     acc[pet.pet_id] = pet.like; 
+            //     return acc;
+            // }, {});
+            // setLikedPets(initialLikedPets);
+
+            setLikedPets(storedLikedPets)
     
             const fetchCommentsPromises = data.map((pet) =>
                 fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/api/pets/${pet.pet_id}/comments`)
@@ -129,10 +133,37 @@ export default function FriendForm({ username }) {
     };
 
 
+    // const handleLikeToggle = async (petId) => {
+    //     const newLikeStatus = !likedPets[petId];
+    
+    //     try {
+    //         const response = await fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/api/pets/${petId}/like`, {
+    //             method: 'PATCH',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({ username, like: newLikeStatus }),
+    //         });
+    
+    //         if (!response.ok) {
+    //             throw new Error('Failed to update like status');
+    //         }
+    
+    //         setLikedPets(prevLikedPets => ({
+    //             ...prevLikedPets,
+    //             [petId]: newLikeStatus,
+    //         })
+    //     );
+    //     } catch (error) {
+    //         console.error('Error updating like status:', error);
+    //     }
+    // };
+    
     const handleLikeToggle = async (petId) => {
         const newLikeStatus = !likedPets[petId];
     
         try {
+            // Update like status on the backend
             const response = await fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/api/pets/${petId}/like`, {
                 method: 'PATCH',
                 headers: {
@@ -145,15 +176,23 @@ export default function FriendForm({ username }) {
                 throw new Error('Failed to update like status');
             }
     
-            setLikedPets(prevLikedPets => ({
-                ...prevLikedPets,
-                [petId]: newLikeStatus,
-            }));
+            // Optimistically update the likedPets state
+            setLikedPets((prevLikedPets) => {
+                const updatedLikedPets = {
+                    ...prevLikedPets,
+                    [petId]: newLikeStatus,
+                };
+    
+                // Save the updated likedPets to localStorage
+                localStorage.setItem('likedPets', JSON.stringify(updatedLikedPets));
+    
+                return updatedLikedPets;
+            });
+    
         } catch (error) {
             console.error('Error updating like status:', error);
         }
     };
-    
     
     
 
