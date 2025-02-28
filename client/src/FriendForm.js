@@ -20,6 +20,7 @@ export default function FriendForm({ username }) {
             setPets(data);
 
             const storedLikedPets = JSON.parse(localStorage.getItem('likedPets')) || {};
+            console.log("Loaded liked pets from localStorage:", storedLikedPets);
     
             // const initialLikedPets = data.reduce((acc, pet) => {
             //     acc[pet.pet_id] = pet.like; 
@@ -185,7 +186,7 @@ export default function FriendForm({ username }) {
     
                 // Save the updated likedPets to localStorage
                 localStorage.setItem('likedPets', JSON.stringify(updatedLikedPets));
-    
+                console.log(updatedLikedPets)
                 return updatedLikedPets;
             });
     
