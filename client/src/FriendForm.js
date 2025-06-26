@@ -9,7 +9,7 @@ export default function FriendForm({ username }) {
 
     
     useEffect(() => {
-        fetch('https://backend-petconnect-6115f2de1b47.herokuapp.com/api/pets', {
+        fetch('https://backend-friends.onrender.com/api/pets', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export default function FriendForm({ username }) {
             setLikedPets(storedLikedPets)
     
             const fetchCommentsPromises = data.map((pet) =>
-                fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/api/pets/${pet.pet_id}/comments`)
+                fetch(`https://backend-friends.onrender.com/api/pets/${pet.pet_id}/comments`)
                     .then((res) => res.json())
                     .then((commentData) => ({
                         pet_id: pet.pet_id,
@@ -66,7 +66,7 @@ export default function FriendForm({ username }) {
 
     useEffect(() => {
         if (username) {
-            fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/api/users/${username}/liked-pets`, {
+            fetch(`https://backend-friends.onrender.com/api/users/${username}/liked-pets`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export default function FriendForm({ username }) {
         const commentTextForPet = commentText[petId] || '';
         if (commentTextForPet.trim()) {
             try {
-                const response = await fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/api/pets/${petId}/comments`, {
+                const response = await fetch(`https://backend-friends.onrender.com/api/pets/${petId}/comments`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -165,7 +165,7 @@ export default function FriendForm({ username }) {
     
         try {
             // Update like status on the backend
-            const response = await fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/api/pets/${petId}/like`, {
+            const response = await fetch(`https://backend-friends.onrender.com/api/pets/${petId}/like`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
