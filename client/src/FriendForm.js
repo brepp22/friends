@@ -9,7 +9,7 @@ export default function FriendForm({ username }) {
 
     
     useEffect(() => {
-        fetch('https://backend-friends.onrender.com/pets', {
+        fetch('https://backend-friends.onrender.com/api/pets', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

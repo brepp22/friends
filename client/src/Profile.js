@@ -7,7 +7,7 @@ function Profile({ username }) {
 
   useEffect(() => {
    
-    fetch(`https://backend-petconnect-6115f2de1b47.herokuapp.com/api/user/${username}/liked-pets`)
+    fetch(`https://backend-friends.onrender.com/api/user/${username}/liked-pets`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch liked pets');
